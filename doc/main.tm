@@ -110,6 +110,20 @@
     </equation*>
   </proof>>
 
+  <\lemma>
+    <math|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>>> forms a
+    group. That is
+
+    <\equation>
+      <wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>>
+      <wide|T|^><rsup|\<ast\>><rsub|t<rprime|'>\<rightarrow\>t<rprime|''>>=<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|''>>.
+    </equation>
+  </lemma>
+
+  <very-small|<\proof>
+    TODO
+  </proof>>
+
   <subsection|Infinitesimal Pull-back>
 
   Now, we try to derive the explicit expression of
@@ -308,6 +322,45 @@
     which is <math|<wide|L|^><rsub|f>>.
   </proof>>
 
+  \;
+
+  From Lie derivative <math|<wide|L|^><rsub|f>>, we can go back to
+  <math|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>>> via the
+  Dyson series.
+
+  <\lemma>
+    [Dyson Series] If <math|<wide|L|^><rsub|f>> the Lie derivative of the
+    pull-back <math|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>>>,
+    then
+
+    <\equation>
+      <wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>>=1-<big|int><rsub|t><rsup|t<rprime|'>>\<mathd\>\<tau\><rsub|1>
+      <wide|L|^><rsub|f><around*|(|\<tau\><rsub|1>|)>+<big|int><rsub|t><rsup|t<rprime|'>>\<mathd\>\<tau\><rsub|1>
+      <wide|L|^><rsub|f><around*|(|\<tau\><rsub|1>|)>
+      <big|int><rsub|t><rsup|\<tau\><rsub|1>>\<mathd\>\<tau\><rsub|2>
+      <wide|L|^><rsub|f><around*|(|\<tau\><rsub|2>|)>-\<cdots\>.
+    </equation>
+  </lemma>
+
+  <very-small|<\proof>
+    By definition of <math|<wide|L|^><rsub|f>>, we have
+
+    <\align>
+      <tformat|<table|<row|<cell|<frac|\<partial\><wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>>|\<partial\>t<rprime|'>>\<assign\>>|<cell|lim<rsub|\<Delta\>t\<rightarrow\>0><frac|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>+\<Delta\>t>-<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>>|\<Delta\>t>>>|<row|<cell|<around*|{|<text|<math|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>>>
+      forms a group>|}>=>|<cell|lim<rsub|\<Delta\>t\<rightarrow\>0><frac|<wide|T|^><rsup|\<ast\>><rsub|t<rprime|'>\<rightarrow\>t<rprime|'>+\<Delta\>t>
+      <wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>>-<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>>|\<Delta\>t>>>|<row|<cell|=>|<cell|lim<rsub|\<Delta\>t\<rightarrow\>0><frac|<wide|T|^><rsup|\<ast\>><rsub|t<rprime|'>\<rightarrow\>t<rprime|'>+\<Delta\>t>-1|\<Delta\>t>
+      <wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>>>>|<row|<cell|<around*|{|<wide|L|^><rsub|f>\<assign\>\<cdots\>|}>=>|<cell|-<wide|L|^><rsub|f><around*|(|t<rprime|'>|)>
+      <wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>>,>>>>
+    </align>
+
+    where we employed the fact that <math|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>>>
+    forms a group.
+
+    It can be checked by direct calculus that the Dyson series satisfies this
+    differential equation. Thus, the <math|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>>>
+    can be expressed so.
+  </proof>>
+
   <section|Stochastic Differential Equation>
 
   A direct generalization of ordinary differential equatoin is adding a
@@ -315,17 +368,16 @@
 
   <\equation>
     <frac|\<mathd\>x<rsup|a>|\<mathd\>t><around*|(|t|)>=f<rsup|a><around*|(|t,x|)>+g<rsup|a><rsub|\<beta\>><around*|(|t,x|)>
-    \<eta\><rsup|\<beta\>><around*|(|t|)>,
+    \<eta\><rsup|\<beta\>><around*|(|t|)>.
   </equation>
 
-  where, for <math|\<forall\>t> and <math|\<alpha\>>,
-  <math|\<eta\><rsup|\<alpha\>><around*|(|t|)>\<sim\><with|font|cal|N><around*|(|0,1/\<mathd\>t|)>>.
   Thus, <math|\<eta\>:\<bbb-R\>\<rightarrow\>V> with <math|V> an Euclidean
   space, and <math|g:\<bbb-R\>\<rightarrow\><with|font|cal|M>\<rightarrow\>V\<rightarrow\>T<with|font|cal|M>>.
+  Notice that the dimension of <math|\<eta\>> and that of <math|f> may not
+  equal.
 
-  \;
-
-  For any functional <math|F<around*|[|\<eta\>|]>>, split the time interval
+  To declare the distribution of <math|\<eta\>>, for any
+  <math|F<around*|[|\<eta\>|]>> as test functional, split the time interval
   <math|<around*|[|t,t<rprime|'>|]>> by <math|t=t<rsub|1>\<less\>t<rsub|2>\<less\>\<cdots\>\<less\>t<rsub|N>=t<rprime|'>>,
   with <math|t<rsub|i+1>-t<rsub|i>\<equiv\>\<Delta\>t>, then define the
   expectation as
@@ -344,9 +396,18 @@
     F<around*|[|\<eta\>|]>,>>>>
   </align>
 
-  where <math|Z> the normalization factor so that
-  <math|<around*|\<langle\>|1|\<rangle\>>=1>. Notice that the dimension of
-  <math|\<eta\>> and that of <math|f> may not equal.
+  where <math|Z> is the normalization factor so that
+  <math|<around*|\<langle\>|1|\<rangle\>>=1>. So, roughly speaking,
+  <math|\<eta\><rsup|\<alpha\>><around*|(|t|)>\<sim\><with|font|cal|N><around*|(|0,1/\<mathd\>t|)>>
+  for <math|\<forall\>\<alpha\>,t>. With this, we find
+
+  <\align>
+    <tformat|<table|<row|<cell|<around*|\<langle\>|\<eta\><rsup|\<alpha\>><around*|(|t|)>|\<rangle\>>=>|<cell|0;>>|<row|<cell|<around*|\<langle\>|\<eta\><rsup|\<alpha\>><around*|(|t|)>
+    \<eta\><rsup|\<beta\>><around*|(|t<rprime|'>|)>|\<rangle\>>=>|<cell|\<delta\><rsup|\<alpha\>\<beta\>>
+    \<delta\><around*|(|t-t<rprime|'>|)>.>>>>
+  </align>
+
+  Higher order expectations can be obtained directly by Wick theorem.
 
   <subsection|Infinitesimal Pull-back Expectation>
 
@@ -388,50 +449,70 @@
       \<eta\><rsup|\<beta\>>.
     </equation*>
 
-    Then, we have <math|><math|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t+\<Delta\>t><around*|[|\<eta\>|]>=exp<around*|(|-<wide|L|^><rsub|F<rsub|\<eta\>>>\<Delta\>t|)>>.<\footnote>
-      TODO: needs some proof.
-    </footnote> Then,
+    Since <math|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>>=1-<big|int><rsub|t><rsup|t<rprime|'>>\<mathd\>\<tau\><rsub|1>
+    <wide|L|^><rsub|F<rsub|\<eta\>>><around*|(|\<tau\><rsub|1>|)>+<big|int><rsub|t><rsup|t<rprime|'>>\<mathd\>\<tau\><rsub|1>
+    <wide|L|^><rsub|F<rsub|\<eta\>>><around*|(|\<tau\><rsub|1>|)>
+    <big|int><rsub|t><rsup|\<tau\><rsub|1>>\<mathd\>\<tau\><rsub|2>
+    <wide|L|^><rsub|F<rsub|\<eta\>>><around*|(|\<tau\><rsub|2>|)>-\<cdots\>>,
+    we have
+
+    <\equation*>
+      <around*|\<langle\>|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t+\<Delta\>t><around*|[|\<cdummy\>|]>|\<rangle\>>=1-<around*|\<langle\>|<big|int><rsub|t><rsup|t+\<Delta\>t>\<mathd\>\<tau\><rsub|1>
+      <wide|L|^><rsub|F<rsub|\<eta\>>><around*|(|\<tau\><rsub|1>|)>|\<rangle\>>+<around*|\<langle\>|<big|int><rsub|t><rsup|t+\<Delta\>t>\<mathd\>\<tau\><rsub|1>
+      <wide|L|^><rsub|F<rsub|\<eta\>>><around*|(|\<tau\><rsub|1>|)>
+      <big|int><rsub|t><rsup|\<tau\><rsub|1>>\<mathd\>\<tau\><rsub|2>
+      <wide|L|^><rsub|F<rsub|\<eta\>>><around*|(|\<tau\><rsub|2>|)>|\<rangle\>>-\<cdots\>.
+    </equation*>
+
+    Since <math|<around*|\<langle\>|\<eta\>|\<rangle\>>=0>,
 
     <\align>
-      <tformat|<table|<row|<cell|<around*|\<langle\>|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t+\<Delta\>t><around*|[|\<cdummy\>|]>|\<rangle\>>=>|<cell|<big|int>\<mathd\>\<eta\><around*|(|t|)>
-      exp<around*|(|-<frac|1|2> \<Delta\>t \<delta\><rsub|\<alpha\>\<beta\>>
-      \<eta\><rsup|\<alpha\>><around*|(|t|)>
-      \<eta\><rsup|\<beta\>><around*|(|t|)>|)>
-      exp<around*|(|-<wide|L|^><rsub|F<rsub|\<eta\>>>\<Delta\>t|)>>>|<row|<cell|=>|<cell|<big|int>\<mathd\>\<eta\><around*|(|t|)>
-      exp<around*|(|-<frac|1|2> \<Delta\>t \<delta\><rsub|\<alpha\>\<beta\>>
-      \<eta\><rsup|\<alpha\>><around*|(|t|)>
-      \<eta\><rsup|\<beta\>><around*|(|t|)>|)>
-      <around*|(|1-<wide|L|^><rsub|F<rsub|\<eta\>>>\<Delta\>t+<frac|1|2><around*|(|<wide|L|^><rsub|F<rsub|\<eta\>>>\<Delta\>t|)><rsup|2>+\<cdots\>|)>>>|<row|<cell|=>|<cell|1-<around*|\<langle\>|<wide|L|^><rsub|F<rsub|\<eta\>>>
-      \<Delta\>t|\<rangle\>>+<frac|1|2><around*|\<langle\>|<around*|(|<wide|L|^><rsub|F<rsub|\<eta\>>>\<Delta\>t|)><rsup|2>|\<rangle\>>+\<cdots\>>>>>
+      <tformat|<table|<row|<cell|>|<cell|<around*|\<langle\>|<big|int><rsub|t><rsup|t+\<Delta\>t>\<mathd\>\<tau\><rsub|1>
+      <wide|L|^><rsub|F<rsub|\<eta\>>><around*|(|\<tau\><rsub|1>|)>|\<rangle\>>>>|<row|<cell|=>|<cell|<big|int><rsub|t><rsup|t+\<Delta\>t>\<mathd\>\<tau\><rsub|1>
+      <wide|L|^><rsub|f><around*|(|\<tau\><rsub|1>|)>+<big|int><rsub|t><rsup|t+\<Delta\>t>\<mathd\>\<tau\><rsub|1><wide|L|^><rsub|g<rsub|\<beta\>>><around*|(|\<tau\><rsub|1>|)>
+      <around*|\<langle\>|\<eta\><rsup|\<beta\>><around*|(|\<tau\><rsub|1>|)>|\<rangle\>>>>|<row|<cell|<around*|{|<around*|\<langle\>|\<eta\><rsup|\<beta\>>|\<rangle\>>=0|}>=>|<cell|<big|int><rsub|t><rsup|t+\<Delta\>t>\<mathd\>\<tau\><rsub|1>
+      <wide|L|^><rsub|f><around*|(|\<tau\><rsub|1>|)>>>>>
     </align>
 
-    Since <math|<around*|\<langle\>|\<eta\><rsup|\<beta\>>|\<rangle\>>=0>,
-    <math|<around*|\<langle\>|<wide|L|^><rsub|F<rsub|\<eta\>>>
-    \<Delta\>t|\<rangle\>>=<around*|\<langle\>|<wide|L|^><rsub|f>+<wide|L|^><rsub|g<rsub|\<beta\>>>
-    \<eta\><rsup|\<beta\>>|\<rangle\>>\<Delta\>t=<wide|L|^><rsub|f>
-    \<Delta\>t>. And since <math|<around*|\<langle\>|\<eta\><rsup|\<alpha\>>
-    \<eta\><rsup|\<beta\>>|\<rangle\>>=\<delta\><rsup|\<alpha\>\<beta\>>/\<Delta\>t>,
+    And since <math|<around*|\<langle\>|\<eta\><rsup|\<alpha\>><around*|(|t|)>
+    \<eta\><rsup|\<beta\>><around*|(|t<rprime|'>|)>|\<rangle\>>=\<delta\><rsup|\<alpha\>\<beta\>>
+    \<delta\><around*|(|t-t<rprime|'>|)>>,
 
     <\align>
-      <tformat|<table|<row|<cell|>|<cell|<around*|\<langle\>|<around*|(|<wide|L|^><rsub|F<rsub|\<eta\>>>
-      \<Delta\>t|)><rsup|2>|\<rangle\>>>>|<row|<cell|=>|<cell|<around*|\<langle\>|<around*|(|<wide|L|^><rsub|f>+<wide|L|^><rsub|g<rsub|\<alpha\>>>
-      \<eta\><rsup|\<alpha\>>|)> <around*|(|<wide|L|^><rsub|f>+<wide|L|^><rsub|g<rsub|\<beta\>>>
-      \<eta\><rsup|\<beta\>>|)>|\<rangle\>>
-      \<Delta\>t<rsup|2>>>|<row|<cell|<around*|{|<around*|\<langle\>|\<eta\><rsup|\<beta\>>|\<rangle\>>=0|}>=>|<cell|<wide|L|^><rsub|f><rsup|2>
-      \<Delta\>t<rsup|2>+<wide|L|^><rsub|g<rsub|\<alpha\>>>
-      <wide|L|^><rsub|g<rsub|\<beta\>>> <around*|\<langle\>|\<eta\><rsup|\<alpha\>>
-      \<eta\><rsup|\<beta\>>|\<rangle\>> \<Delta\>t<rsup|2>>>|<row|<cell|<around*|{|<around*|\<langle\>|\<eta\><rsup|\<alpha\>>
-      \<eta\><rsup|\<beta\>>|\<rangle\>>=\<delta\><rsup|\<alpha\>\<beta\>>/\<Delta\>t|}>=>|<cell|<wide|L|^><rsub|f><rsup|2>
-      \<Delta\>t<rsup|2>+<wide|L|^><rsub|g<rsub|\<alpha\>>>
-      <wide|L|^><rsub|g<rsub|\<beta\>>> \<delta\><rsup|\<alpha\>\<beta\>>
-      \<Delta\>t>>|<row|<cell|<around*|{|<wide|L|^><rsub|g><rsup|2>\<assign\>\<cdots\>|}>=>|<cell|<wide|L|^><rsub|f><rsup|2>
-      \<Delta\>t<rsup|2>+<wide|L|^><rsub|g><rsup|2> \<Delta\>t.>>>>
+      <tformat|<table|<row|<cell|>|<cell|<around*|\<langle\>|<big|int><rsub|t><rsup|t+\<Delta\>t>\<mathd\>\<tau\><rsub|1>
+      <wide|L|^><rsub|F<rsub|\<eta\>>><around*|(|\<tau\><rsub|1>|)>
+      <big|int><rsub|t><rsup|\<tau\><rsub|1>>\<mathd\>\<tau\><rsub|2>
+      <wide|L|^><rsub|F<rsub|\<eta\>>><around*|(|\<tau\><rsub|2>|)>|\<rangle\>>>>|<row|<cell|<around*|{|<wide|L|^><rsub|F<rsub|\<eta\>>>\<assign\>\<cdots\>|}>=>|<cell|<around*|\<langle\>|<big|int><rsub|t><rsup|t+\<Delta\>t>\<mathd\>\<tau\><rsub|1>
+      <around*|[|<wide|L|^><rsub|f><around*|(|\<tau\><rsub|1>|)>+<wide|L|^><rsub|g<rsub|\<alpha\>>><around*|(|\<tau\><rsub|1>|)>
+      \<eta\><rsup|\<alpha\>><around*|(|\<tau\><rsub|1>|)>|]>
+      <big|int><rsub|t><rsup|\<tau\><rsub|1>>\<mathd\>\<tau\><rsub|2>
+      <around*|[|<wide|L|^><rsub|f><around*|(|\<tau\><rsub|2>|)>+<wide|L|^><rsub|g<rsub|\<beta\>>><around*|(|\<tau\><rsub|2>|)>
+      \<eta\><rsup|\<beta\>><around*|(|\<tau\><rsub|2>|)>|]>|\<rangle\>>>>|<row|<cell|<around*|{|Expand|}>=>|<cell|<big|int><rsub|t><rsup|t+\<Delta\>t>\<mathd\>\<tau\><rsub|1><big|int><rsub|t><rsup|\<tau\><rsub|1>>\<mathd\>\<tau\><rsub|2>
+      <wide|L|^><rsub|f><around*|(|\<tau\><rsub|1>|)><wide|L|^><rsub|f><around*|(|\<tau\><rsub|2>|)>>>|<row|<cell|+>|<cell|<big|int><rsub|t><rsup|t+\<Delta\>t>\<mathd\>\<tau\><rsub|1><big|int><rsub|t><rsup|\<tau\><rsub|1>>\<mathd\>\<tau\><rsub|2><wide|L|^><rsub|f><around*|(|\<tau\><rsub|1>|)><wide|L|^><rsub|g<rsub|\<beta\>>><around*|(|\<tau\><rsub|2>|)>
+      <around*|\<langle\>|\<eta\><rsup|\<beta\>><around*|(|\<tau\><rsub|2>|)>|\<rangle\>>+<big|int><rsub|t><rsup|t+\<Delta\>t>\<mathd\>\<tau\><rsub|1><big|int><rsub|t><rsup|\<tau\><rsub|1>>\<mathd\>\<tau\><rsub|2><wide|L|^><rsub|g<rsub|\<alpha\>>><around*|(|\<tau\><rsub|1>|)>
+      <wide|L|^><rsub|f><around*|(|\<tau\><rsub|2>|)>
+      <around*|\<langle\>|\<eta\><rsup|\<alpha\>><around*|(|\<tau\><rsub|1>|)>|\<rangle\>>>>|<row|<cell|+>|<cell|<big|int><rsub|t><rsup|t+\<Delta\>t>\<mathd\>\<tau\><rsub|1>
+      <big|int><rsub|t><rsup|\<tau\><rsub|1>>\<mathd\>\<tau\><rsub|2>
+      <wide|L|^><rsub|g<rsub|\<alpha\>>><around*|(|\<tau\><rsub|1>|)><wide|L|^><rsub|g<rsub|\<beta\>>><around*|(|\<tau\><rsub|2>|)>
+      <around*|\<langle\>|\<eta\><rsup|\<alpha\>><around*|(|\<tau\><rsub|1>|)>
+      \<eta\><rsup|\<beta\>><around*|(|\<tau\><rsub|2>|)>|\<rangle\>>>>|<row|<cell|=>|<cell|<with|font|cal|O><around*|(|\<Delta\>t<rsup|2>|)>>>|<row|<cell|<around*|{|<around*|\<langle\>|\<eta\>|\<rangle\>>=0|}>+>|<cell|0>>|<row|<cell|<around*|{|<around*|\<langle\>|\<eta\><rsup|\<alpha\>><around*|(|t|)>
+      \<eta\><rsup|\<beta\>><around*|(|t<rprime|'>|)>|\<rangle\>>=\<delta\><rsup|\<alpha\>\<beta\>>
+      \<delta\><around*|(|t-t<rprime|'>|)>|}>+>|<cell|<big|int><rsub|t><rsup|t+\<Delta\>t>\<mathd\>\<tau\><rsub|1>
+      <big|int><rsub|t><rsup|\<tau\><rsub|1>>\<mathd\>\<tau\><rsub|2>
+      <wide|L|^><rsub|g<rsub|\<alpha\>>><around*|(|\<tau\><rsub|1>|)><wide|L|^><rsub|g<rsub|\<beta\>>><around*|(|\<tau\><rsub|2>|)>
+      \<delta\><rsup|\<alpha\>\<beta\>> \<delta\><around*|(|\<tau\><rsub|1>-\<tau\><rsub|2>|)>>>|<row|<cell|=>|<cell|<frac|1|2>
+      <big|int><rsub|t><rsup|t+\<Delta\>t>\<mathd\>\<tau\><rsub|1>
+      <wide|L|^><rsub|g<rsub|\<alpha\>>><around*|(|\<tau\><rsub|1>|)><wide|L|^><rsub|g<rsub|\<beta\>>><around*|(|\<tau\><rsub|1>|)>
+      \<delta\><rsup|\<alpha\>\<beta\>>,>>>>
     </align>
 
-    Thus,
+    where in the last line, we employed <math|<big|int><rsub|t><rsup|\<tau\><rsub|1>>\<mathd\>\<tau\><rsub|2>
+    \<delta\><around*|(|\<tau\><rsub|1>-\<tau\><rsub|2>|)>=1/2>.<\footnote>
+      TODO: explain this.
+    </footnote> Thus,
 
     <\align>
-      <tformat|<table|<row|<cell|<around*|\<langle\>|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t+\<Delta\>t><around*|[|\<cdummy\>|]>|\<rangle\>>=>|<cell|1-<around*|\<langle\>|<wide|L|^><rsub|F<rsub|\<eta\>>>|\<rangle\>>\<Delta\>t+<frac|1|2><around*|\<langle\>|<around*|(|<wide|L|^><rsub|F<rsub|\<eta\>>>\<Delta\>t|)><rsup|2>|\<rangle\>>+\<cdots\>>>|<row|<cell|=>|<cell|1-<wide|L|^><rsub|f>
+      <tformat|<table|<row|<cell|<around*|\<langle\>|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t+\<Delta\>t><around*|[|\<cdummy\>|]>|\<rangle\>>=>|<cell|1-<wide|L|^><rsub|f>
       \<Delta\>t+<frac|1|2> <around*|\<langle\>|<wide|L|^><rsub|g><rsup|2>|\<rangle\>>\<Delta\>t+o<around*|(|\<Delta\>t|)>.>>>>
     </align>
 
@@ -499,7 +580,7 @@
     <associate|auto-2|<tuple|1.1|1>>
     <associate|auto-3|<tuple|1.1.1|1>>
     <associate|auto-4|<tuple|1.2|2>>
-    <associate|auto-5|<tuple|1.2.1|2>>
+    <associate|auto-5|<tuple|1.2.1|3>>
     <associate|auto-6|<tuple|1.2.2|3>>
     <associate|auto-7|<tuple|1.2.2|5>>
     <associate|footnote-1|<tuple|1|?>>
@@ -508,15 +589,15 @@
     <associate|footnote-1.3|<tuple|1.3|1>>
     <associate|footnote-1.4|<tuple|1.4|1>>
     <associate|footnote-1.5|<tuple|1.5|1>>
-    <associate|footnote-1.6|<tuple|1.6|3>>
-    <associate|footnote-1.7|<tuple|1.7|?>>
+    <associate|footnote-1.6|<tuple|1.6|1>>
+    <associate|footnote-1.7|<tuple|1.7|3>>
     <associate|footnr-1.1|<tuple|1.1|1>>
     <associate|footnr-1.2|<tuple|1.2|1>>
     <associate|footnr-1.3|<tuple|1.3|1>>
     <associate|footnr-1.4|<tuple|1.4|1>>
-    <associate|footnr-1.5|<tuple|1.5|1>>
-    <associate|footnr-1.6|<tuple|1.6|3>>
-    <associate|footnr-1.7|<tuple|1.7|?>>
+    <associate|footnr-1.5|<tuple|1.6|1>>
+    <associate|footnr-1.6|<tuple|1.6|1>>
+    <associate|footnr-1.7|<tuple|1.7|3>>
   </collection>
 </references>
 
