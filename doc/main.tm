@@ -8,17 +8,18 @@
   <section|Ordinary Differential Equation>
 
   Let <math|<with|font|cal|M>> a smooth manifold, and
-  <math|f:<with|font|cal|M>\<times\>\<bbb-R\>\<rightarrow\>T<with|font|cal|M>>,
+  <math|f:\<bbb-R\>\<times\><with|font|cal|M>\<rightarrow\>T<with|font|cal|M>>,
   we have ordinary differential equation<\footnote>
     We employ Einstein's convension of summation thoroughly.
   </footnote>
 
   <\equation>
-    <frac|\<mathd\>x<rsup|a>|\<mathd\>t><around*|(|t|)>=f<rsup|a><around*|(|x,t|)>.
+    <frac|\<mathd\>x<rsup|a>|\<mathd\>t><around*|(|t|)>=f<rsup|a><around*|(|t,x|)>.
   </equation>
 
   This ordinary differential equation induces a push-forward operator,
-  <math|<wide|T|^><rsub|t\<rightarrow\>t<rprime|'>>:\<bbb-R\>\<times\>\<bbb-R\>\<rightarrow\>\<cal-M\>\<rightarrow\>\<cal-M\>><\footnote>
+  <math|<wide|T|^><rsub|t\<rightarrow\>t<rprime|'>>:\<bbb-R\>\<times\>\<bbb-R\>\<rightarrow\>\<cal-M\>\<rightarrow\>\<cal-M\>>
+  <\footnote>
     The notation <math|A\<rightarrow\>B\<rightarrow\>C> in declarations
     always means <math|A\<rightarrow\><around*|(|B\<rightarrow\>C|)>>.
     Further, <math|A\<rightarrow\>B\<rightarrow\>\<cdots\>> means
@@ -65,8 +66,8 @@
     Explicitly, we have
 
     <\equation>
-      <wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>>
-      \<psi\><rsup|<around*|(|k|)>><around*|(|x<rprime|'>|)>=<around*|(|1/k!|)>
+      <around*|(|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>>
+      \<psi\><rsup|<around*|(|k|)>>|)><around*|(|x<rprime|'>|)>=<around*|(|1/k!|)>
       \<psi\><rsup|<around*|(|k|)>><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>><around*|(|<wide|T|^><rsub|t<rprime|'>\<rightarrow\>t>
       x<rprime|'>|)><big|wedge><rsub|i=1><rsup|k><around*|(|T
       <wide|T|^><rsub|t<rprime|'>\<rightarrow\>t>|)><rsup|\<alpha\><rsub|i>><rsub|\<beta\><rsub|i>><around*|(|x<rprime|'>|)>
@@ -103,8 +104,8 @@
     Inserting back the <math|<around*|(|1/k!|)>> factor, we arrive at
 
     <\equation*>
-      <wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>>
-      \<psi\><rsup|<around*|(|k|)>><around*|(|x<rprime|'>|)>=<around*|(|1/k!|)>
+      <around*|(|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>>
+      \<psi\><rsup|<around*|(|k|)>>|)><around*|(|x<rprime|'>|)>=<around*|(|1/k!|)>
       \<psi\><rsup|<around*|(|k|)>><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>><around*|(|<wide|T|^><rsub|t<rprime|'>\<rightarrow\>t>
       x<rprime|'>|)><big|wedge><rsub|i=1><rsup|k><around*|(|T
       <wide|T|^><rsub|t<rprime|'>\<rightarrow\>t>|)><rsup|\<alpha\><rsub|i>><rsub|\<beta\><rsub|i>><around*|(|x<rprime|'>|)>
@@ -120,7 +121,7 @@
   infinitesimal version of pull-back can be described by Lie derivative.
 
   <\definition>
-    [Lie Derivative] Given <math|f:<with|font|cal|M>\<times\>\<bbb-R\>\<rightarrow\>T<with|font|cal|M>>,
+    [Lie Derivative] Given <math|f:\<bbb-R\>\<times\><with|font|cal|M>\<rightarrow\>T<with|font|cal|M>>,
     Lie derivative <math|<wide|L|^><rsub|f>:\<bbb-R\>\<rightarrow\>\<Omega\><rsup|k><around*|(|<with|font|cal|M>|)>\<rightarrow\>\<Omega\><rsup|k><around*|(|<with|font|cal|M>|)>>
     is defined as
 
@@ -133,7 +134,8 @@
   </definition>
 
   Some useful definitions in exterior algebra are recalled. Operators
-  <math|<wide|\<mathd\>|^>\<assign\>\<mathd\>x<rsup|\<alpha\>>\<wedge\>\<partial\><rsub|\<alpha\>>><\footnote>
+  <math|<wide|\<mathd\>|^>\<assign\>\<mathd\>x<rsup|\<alpha\>>\<wedge\>\<partial\><rsub|\<alpha\>>>
+  <\footnote>
     Operator <math|\<partial\><rsub|\<alpha\>>> is short for
     <math|\<partial\>/\<partial\>x<rsup|\<alpha\>>>.
   </footnote> and, for <math|\<forall\>f>,
@@ -172,43 +174,45 @@
   <small|<\proof>
     As <math|t<rprime|'>=t+\<Delta\>t> with <math|\<Delta\>t> tiny, we have
     <math|<wide|T|^><rsub|t<rprime|'>\<rightarrow\>t>
-    x<rprime|'>=x<rprime|'>-f \<Delta\>t>. Then, <math|T
-    <wide|T|^><rsub|t<rprime|'>\<rightarrow\>t>=1-T f \<Delta\>t>. Now we
+    x<rprime|'>=x<rprime|'>-f<around*|(|t<rprime|'>,x<rprime|'>|)>
+    \<Delta\>t>. Then, <math|T <wide|T|^><rsub|t<rprime|'>\<rightarrow\>t>=1-T
+    f \<Delta\>t>, where <math|T f> denotes the Jacobian of <math|f>. Now,
     insert this two expressions into the definition of
     <math|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>>
-    \<psi\><rsup|<around*|(|k|)>>>, that is,
+    \<psi\><rsup|<around*|(|k|)>>>, we find
 
     <\equation*>
-      <around*|(|1/k!|)>\<psi\><rsup|<around*|(|k|)>><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>><around*|(|x<rprime|'>-f<around*|(|x<rprime|'>|)>
-      \<Delta\>t|)><big|wedge><rsub|i=1><rsup|k><around*|(|\<delta\><rsup|\<alpha\><rsub|i>><rsub|\<beta\><rsub|i>>-<around*|(|\<partial\><rsub|\<beta\><rsub|i>>f<rsup|\<alpha\><rsub|i>>|)><around*|(|x<rprime|'>|)>
+      <around*|(|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>>
+      \<psi\><rsup|<around*|(|k|)>>|)><around*|(|x<rprime|'>|)>=<around*|(|1/k!|)>\<psi\><rsup|<around*|(|k|)>><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>><around*|(|x<rprime|'>-f<around*|(|t<rprime|'>,x<rprime|'>|)>
+      \<Delta\>t|)><big|wedge><rsub|i=1><rsup|k><around*|(|\<delta\><rsup|\<alpha\><rsub|i>><rsub|\<beta\><rsub|i>>-<around*|(|\<partial\><rsub|\<beta\><rsub|i>>f<rsup|\<alpha\><rsub|i>>|)><around*|(|t<rprime|'>,x<rprime|'>|)>
       \<Delta\>t|)>\<mathd\>x<rprime|'><rsup|\<beta\><rsub|i>>.
     </equation*>
 
     First, consider the expansion of <math|<around*|(|1/k!|)>
-    \<psi\><rsup|<around*|(|k|)>><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>><big|wedge><rsub|i=1><rsup|k><around*|(|\<delta\><rsup|\<alpha\><rsub|i>><rsub|\<beta\><rsub|i>>-<around*|(|\<partial\><rsub|\<beta\><rsub|i>>f<rsup|\<alpha\><rsub|i>>|)><around*|(|x<rprime|'>|)>
+    \<psi\><rsup|<around*|(|k|)>><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>><around*|(|x|)><big|wedge><rsub|i=1><rsup|k><around*|(|\<delta\><rsup|\<alpha\><rsub|i>><rsub|\<beta\><rsub|i>>-<around*|(|\<partial\><rsub|\<beta\><rsub|i>>f<rsup|\<alpha\><rsub|i>>|)><around*|(|t<rprime|'>,x<rprime|'>|)>
     \<Delta\>t|)>\<mathd\>x<rprime|'><rsup|\<beta\><rsub|i>>>, up to
     <math|<with|font|cal|O><around*|(|\<Delta\>t|)>>,
 
     <\align>
       <tformat|<table|<row|<cell|>|<cell|<around*|(|1/k!|)>
-      \<psi\><rsup|<around*|(|k|)>><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>><big|wedge><rsub|i=1><rsup|k><around*|(|\<delta\><rsup|\<alpha\><rsub|i>><rsub|\<beta\><rsub|i>>-<around*|(|\<partial\><rsub|\<beta\><rsub|i>>f<rsup|\<alpha\><rsub|i>>|)><around*|(|x<rprime|'>|)>
+      \<psi\><rsup|<around*|(|k|)>><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>><around*|(|x|)><big|wedge><rsub|i=1><rsup|k><around*|(|\<delta\><rsup|\<alpha\><rsub|i>><rsub|\<beta\><rsub|i>>-<around*|(|\<partial\><rsub|\<beta\><rsub|i>>f<rsup|\<alpha\><rsub|i>>|)><around*|(|t<rprime|'>,x<rprime|'>|)>
       \<Delta\>t|)>\<mathd\>x<rprime|'><rsup|\<beta\><rsub|i>>>>|<row|<cell|=>|<cell|<around*|(|1/k!|)>
-      \<psi\><rsup|<around*|(|k|)>><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>>\<mathd\>x<rsup|\<alpha\><rsub|1>>\<wedge\>\<cdots\>\<wedge\>\<mathd\>x<rsup|\<alpha\><rsub|k>>>>|<row|<cell|->|<cell|\<Delta\>t
+      \<psi\><rsup|<around*|(|k|)>><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>><around*|(|x|)>\<mathd\>x<rsup|\<alpha\><rsub|1>>\<wedge\>\<cdots\>\<wedge\>\<mathd\>x<rsup|\<alpha\><rsub|k>>>>|<row|<cell|->|<cell|\<Delta\>t
       <big|sum><rsub|i=1><rsup|k><around*|(|1/k!|)>
-      \<psi\><rsup|<around*|(|k|)>><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>>
-      <around*|(|\<partial\><rsub|\<beta\><rsub|i>>f<rsup|\<alpha\><rsub|i>>|)><around*|(|x<rprime|'>|)>
+      \<psi\><rsup|<around*|(|k|)>><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>><around*|(|x|)>
+      <around*|(|\<partial\><rsub|\<beta\><rsub|i>>f<rsup|\<alpha\><rsub|i>>|)><around*|(|t<rprime|'>,x<rprime|'>|)>
       \<mathd\>x<rsup|\<alpha\><rsub|1>>\<wedge\>\<cdots\>\<wedge\><around*|(|<with|color|#a0a0a0|\<mathd\>x<rsup|\<alpha\><rsub|i>>\<rightarrow\>>\<mathd\>x<rsup|\<beta\><rsub|i>>|)>\<wedge\>\<cdots\>\<wedge\>\<mathd\>x<rsup|\<alpha\><rsub|k>>,>>>>
     </align>
 
     where <math|<with|color|#a0a0a0|A\<rightarrow\>>B> means that the
     original <math|A> is replaced by <math|B>. Now, we show that summation in
     the last line equals to <math|\<partial\><rsub|\<beta\>>
-    f<rsup|\<alpha\>><around*|(|x<rprime|'>|)>
+    f<rsup|\<alpha\>><around*|(|t<rprime|'>,x<rprime|'>|)>
     \<mathd\>x<rsup|\<beta\>>\<wedge\>i<rsub|\<alpha\>>
-    \<psi\><rsup|<around*|(|k|)>>>. Recall that
+    \<psi\><rsup|<around*|(|k|)>><around*|(|x|)>>. Recall that
 
     <\equation*>
-      i<rsub|\<alpha\>> \<psi\><rsup|<around*|(|k|)>>\<assign\><around*|(|1/k!|)><big|sum><rsub|i=1><rsup|k><around*|(|-1|)><rsup|i-1>\<psi\><rsub|\<alpha\><rsub|1>\<cdots\><around*|(|<with|color|#a0a0a0|\<alpha\><rsub|i>\<rightarrow\>>\<alpha\>|)>\<cdots\>\<alpha\><rsub|k>>
+      i<rsub|\<alpha\>> \<psi\><rsup|<around*|(|k|)>><around*|(|x|)>\<assign\><around*|(|1/k!|)><big|sum><rsub|i=1><rsup|k><around*|(|-1|)><rsup|i-1>\<psi\><rsub|\<alpha\><rsub|1>\<cdots\><around*|(|<with|color|#a0a0a0|\<alpha\><rsub|i>\<rightarrow\>>\<alpha\>|)>\<cdots\>\<alpha\><rsub|k>><around*|(|x|)>
       \<mathd\>x<rsup|\<alpha\><rsub|1>>\<wedge\>\<cdots\>\<wedge\><with|color|#a0a0a0|\<mathd\>x<rsup|\<alpha\><rsub|i>>>\<wedge\>\<cdots\>\<wedge\>\<mathd\>x<rsup|\<alpha\><rsub|k>>,
     </equation*>
 
@@ -217,21 +221,21 @@
 
     <\align>
       <tformat|<table|<row|<cell|>|<cell|<around*|(|\<partial\><rsub|\<beta\>>
-      f<rsup|\<alpha\>>|)><around*|(|x<rprime|'>|)>
+      f<rsup|\<alpha\>>|)><around*|(|t<rprime|'>,x<rprime|'>|)>
       \<mathd\>x<rsup|\<beta\>>\<wedge\>i<rsub|\<alpha\>>
-      \<psi\><rsup|<around*|(|k|)>>>>|<row|<cell|=>|<cell|<around*|(|\<partial\><rsub|\<beta\>>
-      f<rsup|\<alpha\>>|)><around*|(|x<rprime|'>|)>
-      \<mathd\>x<rsup|\<beta\>>\<wedge\><around*|(|1/k!|)><big|sum><rsub|i=1><rsup|k><around*|(|-1|)><rsup|i-1>\<psi\><rsub|\<alpha\><rsub|1>\<cdots\><around*|(|<with|color|#a0a0a0|\<alpha\><rsub|i>\<rightarrow\>>\<alpha\>|)>\<cdots\>\<alpha\><rsub|k>>
+      \<psi\><rsup|<around*|(|k|)>><around*|(|x|)>>>|<row|<cell|=>|<cell|<around*|(|\<partial\><rsub|\<beta\>>
+      f<rsup|\<alpha\>>|)><around*|(|t<rprime|'>,x<rprime|'>|)>
+      \<mathd\>x<rsup|\<beta\>>\<wedge\><around*|(|1/k!|)><big|sum><rsub|i=1><rsup|k><around*|(|-1|)><rsup|i-1>\<psi\><rsub|\<alpha\><rsub|1>\<cdots\><around*|(|<with|color|#a0a0a0|\<alpha\><rsub|i>\<rightarrow\>>\<alpha\>|)>\<cdots\>\<alpha\><rsub|k>><around*|(|x|)>
       \<mathd\>x<rsup|\<alpha\><rsub|1>>\<wedge\>\<cdots\>\<wedge\><with|color|#a0a0a0|\<mathd\>x<rsup|\<alpha\><rsub|i>>>\<wedge\>\<cdots\>\<wedge\>\<mathd\>x<rsup|\<alpha\><rsub|k>>>>|<row|<cell|=>|<cell|<around*|(|\<partial\><rsub|\<beta\>>
-      f<rsup|\<alpha\>>|)><around*|(|x<rprime|'>|)>
+      f<rsup|\<alpha\>>|)><around*|(|t<rprime|'>,x<rprime|'>|)>
       <big|sum><rsub|i=1><rsup|k><around*|(|1/k!|)>
-      \<psi\><rsub|\<alpha\><rsub|1>\<cdots\><around*|(|<with|color|#a0a0a0|\<alpha\><rsub|i>\<rightarrow\>>\<alpha\>|)>\<cdots\>\<alpha\><rsub|k>>
+      \<psi\><rsub|\<alpha\><rsub|1>\<cdots\><around*|(|<with|color|#a0a0a0|\<alpha\><rsub|i>\<rightarrow\>>\<alpha\>|)>\<cdots\>\<alpha\><rsub|k>><around*|(|x|)>
       \<mathd\>x<rsup|\<alpha\><rsub|1>>\<wedge\>\<cdots\>\<wedge\><around*|(|<with|color|#a0a0a0|\<mathd\>x<rsup|\<alpha\><rsub|i>>\<rightarrow\>>\<mathd\>x<rsup|\<beta\>>|)>\<wedge\>\<cdots\>\<wedge\>\<mathd\>x<rsup|\<alpha\><rsub|k>>>>|<row|<cell|=>|<cell|<big|sum><rsub|i=1><rsup|k><around*|(|\<partial\><rsub|\<beta\><rsub|i>>
-      f<rsup|\<alpha\><rsub|i>>|)><around*|(|x<rprime|'>|)>
-      <around*|(|1/k!|)> \<psi\><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|i>\<cdots\>\<alpha\><rsub|k>>
+      f<rsup|\<alpha\><rsub|i>>|)><around*|(|t<rprime|'>,x<rprime|'>|)>
+      <around*|(|1/k!|)> \<psi\><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|i>\<cdots\>\<alpha\><rsub|k>><around*|(|x|)>
       \<mathd\>x<rsup|\<alpha\><rsub|1>>\<wedge\>\<cdots\>\<wedge\><around*|(|<with|color|#a0a0a0|\<mathd\>x<rsup|\<alpha\><rsub|i>>\<rightarrow\>>\<mathd\>x<rsup|\<beta\><rsub|i>>|)>\<wedge\>\<cdots\>\<wedge\>\<mathd\>x<rsup|\<alpha\><rsub|k>>>>|<row|<cell|=>|<cell|<big|sum><rsub|i=1><rsup|k><around*|(|\<partial\><rsub|\<beta\><rsub|i>>
-      f<rsup|\<alpha\><rsub|i>>|)><around*|(|x<rprime|'>|)>
-      <around*|(|1/k!|)> \<psi\><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>>
+      f<rsup|\<alpha\><rsub|i>>|)><around*|(|t<rprime|'>,x<rprime|'>|)>
+      <around*|(|1/k!|)> \<psi\><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>><around*|(|x|)>
       \<mathd\>x<rsup|\<alpha\><rsub|1>>\<wedge\>\<cdots\>\<wedge\><around*|(|<with|color|#a0a0a0|\<mathd\>x<rsup|\<alpha\><rsub|i>>\<rightarrow\>>\<mathd\>x<rsup|\<beta\><rsub|i>>|)>\<wedge\>\<cdots\>\<wedge\>\<mathd\>x<rsup|\<alpha\><rsub|k>>,>>>>
     </align>
 
@@ -243,31 +247,37 @@
     Thus,
 
     <\equation*>
-      <around*|(|1/k!|)> \<psi\><rsup|<around*|(|k|)>><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>><big|wedge><rsub|i=1><rsup|k><around*|(|\<delta\><rsup|\<alpha\><rsub|i>><rsub|\<beta\><rsub|i>>-<around*|(|\<partial\><rsub|\<beta\><rsub|i>>f<rsup|\<alpha\><rsub|i>>|)><around*|(|x<rprime|'>|)>
+      <around*|(|1/k!|)> \<psi\><rsup|<around*|(|k|)>><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>><around*|(|x|)><big|wedge><rsub|i=1><rsup|k><around*|(|\<delta\><rsup|\<alpha\><rsub|i>><rsub|\<beta\><rsub|i>>-<around*|(|\<partial\><rsub|\<beta\><rsub|i>>f<rsup|\<alpha\><rsub|i>>|)><around*|(|t<rprime|'>,x<rprime|'>|)>
       \<Delta\>t|)>\<mathd\>x<rprime|'><rsup|\<beta\><rsub|i>>=<around*|(|1-\<Delta\>t
       <around*|(|\<partial\><rsub|\<beta\>>
-      f<rsup|\<alpha\>>|)><around*|(|x<rprime|'>|)>
+      f<rsup|\<alpha\>>|)><around*|(|t<rprime|'>,x<rprime|'>|)>
       \<mathd\>x<rsup|\<beta\>>\<wedge\>i<rsub|\<alpha\>>|)>
-      \<psi\><rsup|<around*|(|k|)>>.
+      \<psi\><rsup|<around*|(|k|)>><around*|(|x|)>.
     </equation*>
 
-    So, we find
+    So, we find,
 
     <\align>
-      <tformat|<table|<row|<cell|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t+\<Delta\>t>
-      \<psi\><rsup|<around*|(|k|)>>=>|<cell|<around*|(|1-\<Delta\>t
+      <tformat|<table|<row|<cell|<around*|(|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t+\<Delta\>t>
+      \<psi\><rsup|<around*|(|k|)>>|)><around*|(|x<rprime|'>|)>=>|<cell|<around*|(|1-\<Delta\>t
       <around*|(|\<partial\><rsub|\<beta\>>
-      f<rsup|\<alpha\>>|)><around*|(|x<rprime|'>|)>
+      f<rsup|\<alpha\>>|)><around*|(|t<rprime|'>,x<rprime|'>|)>
       \<mathd\>x<rsup|\<beta\>>\<wedge\>i<rsub|\<alpha\>>|)>
-      \<psi\><rsup|<around*|(|k|)>><around*|(|x<rprime|'>-f
+      \<psi\><rsup|<around*|(|k|)>><around*|(|x|)>>>|<row|<cell|<around*|{|x=x<rprime|'>-f<around*|(|t<rprime|'>,x<rprime|'>|)>
+      \<Delta\>t|}>=>|<cell|<around*|(|1-\<Delta\>t
+      <around*|(|\<partial\><rsub|\<beta\>>
+      f<rsup|\<alpha\>>|)><around*|(|t<rprime|'>,x<rprime|'>|)>
+      \<mathd\>x<rsup|\<beta\>>\<wedge\>i<rsub|\<alpha\>>|)>
+      \<psi\><rsup|<around*|(|k|)>><around*|(|x<rprime|'>-f<around*|(|t<rprime|'>,x<rprime|'>|)>
       \<Delta\>t|)>>>|<row|<cell|=>|<cell|<around*|(|1-\<Delta\>t
       <around*|(|\<partial\><rsub|\<beta\>>
-      f<rsup|\<alpha\>>|)><around*|(|x<rprime|'>|)>
+      f<rsup|\<alpha\>>|)><around*|(|t<rprime|'>,x<rprime|'>|)>
       \<mathd\>x<rsup|\<beta\>>\<wedge\>i<rsub|\<alpha\>>|)>
-      <around*|(|1-\<Delta\>t f<rsup|\<alpha\>><around*|(|x<rprime|'>|)>
-      \<partial\><rsub|\<alpha\>>|)>\<psi\><rsup|<around*|(|k|)>><around*|(|x<rprime|'>|)>>>|<row|<cell|=>|<cell|\<psi\><rsup|<around*|(|k|)>>-<around*|(|f<rsup|a>\<partial\><rsub|a>+<around*|(|\<partial\><rsub|\<beta\>>f<rsup|\<alpha\>>|)>
+      <around*|(|1-\<Delta\>t f<rsup|\<alpha\>><around*|(|t<rprime|'>,x<rprime|'>|)>
+      \<partial\><rsub|\<alpha\>>|)>\<psi\><rsup|<around*|(|k|)>><around*|(|x<rprime|'>|)>>>|<row|<cell|=>|<cell|\<psi\><rsup|<around*|(|k|)>><around*|(|x<rprime|'>|)>-<around*|(|f<rsup|a><around*|(|t<rprime|'>,x<rprime|'>|)>\<partial\><rsub|a>+<around*|(|\<partial\><rsub|\<beta\>>f<rsup|\<alpha\>>|)><around*|(|t<rprime|'>,x<rprime|'>|)>
       \<mathd\>x<rsup|\<beta\>>\<wedge\>i<rsub|\<alpha\>>|)>
-      \<psi\><rsup|<around*|(|k|)>>\<Delta\>t+<with|font|cal|O><around*|(|\<Delta\>t<rsup|2>|)>.>>>>
+      \<psi\><rsup|<around*|(|k|)>><around*|(|x<rprime|'>|)>
+      \<Delta\>t+<with|font|cal|O><around*|(|\<Delta\>t<rsup|2>|)>.>>>>
     </align>
 
     Thus,
@@ -304,12 +314,17 @@
   Gaussian noise, as stochastic differential equation
 
   <\equation>
-    <frac|\<mathd\>x<rsup|a>|\<mathd\>t><around*|(|t|)>=f<rsup|a><around*|(|x,t|)>+g<rsup|a><rsub|\<beta\>><around*|(|x,t|)>
+    <frac|\<mathd\>x<rsup|a>|\<mathd\>t><around*|(|t|)>=f<rsup|a><around*|(|t,x|)>+g<rsup|a><rsub|\<beta\>><around*|(|t,x|)>
     \<eta\><rsup|\<beta\>><around*|(|t|)>,
   </equation>
 
   where, for <math|\<forall\>t> and <math|\<alpha\>>,
   <math|\<eta\><rsup|\<alpha\>><around*|(|t|)>\<sim\><with|font|cal|N><around*|(|0,1/\<mathd\>t|)>>.
+  Thus, <math|\<eta\>:\<bbb-R\>\<rightarrow\>V> with <math|V> an Euclidean
+  space, and <math|g:\<bbb-R\>\<times\><with|font|cal|M>\<rightarrow\>V\<rightarrow\>T<with|font|cal|M>>.
+
+  \;
+
   For any functional <math|F<around*|[|\<eta\>|]>>, split the time interval
   <math|<around*|[|t,t<rprime|'>|]>> by <math|t=t<rsub|1>\<less\>t<rsub|2>\<less\>\<cdots\>\<less\>t<rsub|N>=t<rprime|'>>,
   with <math|t<rsub|i+1>-t<rsub|i>\<equiv\>\<Delta\>t>, then define the
@@ -365,7 +380,7 @@
 
   <small|<\proof>
     Given configuration of <math|\<eta\>>, let
-    <math|F<rsup|\<alpha\>><rsub|\<eta\>><around*|(|x,t|)>\<assign\>f<rsup|\<alpha\>><around*|(|x,t|)>+g<rsup|\<alpha\>><rsub|\<beta\>><around*|(|x,t|)>\<eta\><rsup|\<beta\>><around*|(|t|)>>.
+    <math|F<rsup|\<alpha\>><rsub|\<eta\>><around*|(|t,x|)>\<assign\>f<rsup|\<alpha\>><around*|(|t,x|)>+g<rsup|\<alpha\>><rsub|\<beta\>><around*|(|t,x|)>\<eta\><rsup|\<beta\>><around*|(|t|)>>.
     Directly, we have
 
     <\equation*>
@@ -426,6 +441,32 @@
       <wide|H|^><rsub|<around*|(|f,g|)>>\<assign\>lim<rsub|\<Delta\>t\<rightarrow\>0><frac|<wide|1|^>-<around*|\<langle\>|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t+\<Delta\>t><around*|[|\<cdummy\>|]>|\<rangle\>>|\<Delta\>t>=<wide|L|^><rsub|f>-<frac|1|2><wide|L|^><rsub|g><rsup|2>.
     </equation*>
   </proof>>
+
+  <\example>
+    [Fokker-Planck Equation] In the case <math|g<rsup|\<alpha\>><rsub|\<beta\>>\<equiv\><sqrt|2T>
+    \<delta\><rsup|\<alpha\>><rsub|\<beta\>>>,
+
+    <\equation>
+      <wide|H|^>=<around*|(|\<partial\><rsub|\<alpha\>>f<rsup|\<beta\>>|)>
+      \<mathd\>x<rsup|\<alpha\>>\<wedge\>i<rsub|\<beta\>>+f<rsup|\<alpha\>>\<partial\><rsub|\<alpha\>>-T
+      \<partial\><rsup|2>,
+    </equation>
+
+    where <math|\<partial\><rsup|2>\<assign\>\<delta\><rsup|\<alpha\>\<beta\>>\<partial\><rsub|\<alpha\>>\<partial\><rsub|\<beta\>>>.
+    Applying on <math|\<psi\><rsup|<around*|(|D|)>>> with
+    <math|D=dim<around*|(|<with|font|cal|M>|)>>, since
+    <math|\<mathd\>x<rsup|\<alpha\>>\<wedge\>\<psi\><rsup|<around*|(|D|)>>=0>,
+    and thus <math|\<mathd\>x<rsup|\<alpha\>>\<wedge\>i<rsub|\<beta\>>
+    \<psi\><rsup|<around*|(|D|)>>=\<delta\><rsup|\<alpha\>><rsub|\<beta\>>
+    \<psi\><rsup|<around*|(|D|)>>>, we find
+
+    <\equation>
+      <wide|H|^>\<psi\><rsup|<around*|(|D|)>>=<around*|(|\<partial\><rsub|\<alpha\>>f<rsup|\<alpha\>>-T
+      \<partial\><rsup|2>|)>\<psi\><rsup|<around*|(|D|)>>,
+    </equation>
+
+    which is the Fokker-Planck equation.
+  </example>
 
   <subsection|Symmetry (TODO)>
 
@@ -505,7 +546,7 @@
 
 <\initial>
   <\collection>
-    <associate|font-base-size|9>
+    <associate|font-base-size|8>
     <associate|page-medium|paper>
   </collection>
 </initial>
@@ -523,13 +564,13 @@
     <associate|footnote-3|<tuple|3|1>>
     <associate|footnote-4|<tuple|4|2>>
     <associate|footnote-5|<tuple|5|2>>
-    <associate|footnote-6|<tuple|6|?>>
+    <associate|footnote-6|<tuple|6|3>>
     <associate|footnr-1|<tuple|1|1>>
     <associate|footnr-2|<tuple|2|1>>
     <associate|footnr-3|<tuple|3|1>>
     <associate|footnr-4|<tuple|4|2>>
     <associate|footnr-5|<tuple|5|2>>
-    <associate|footnr-6|<tuple|6|?>>
+    <associate|footnr-6|<tuple|6|3>>
   </collection>
 </references>
 
