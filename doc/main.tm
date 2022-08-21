@@ -366,15 +366,16 @@
   <small|<\proof>
     Given configuration of <math|\<eta\>>, let
     <math|F<rsup|\<alpha\>><rsub|\<eta\>><around*|(|x,t|)>\<assign\>f<rsup|\<alpha\>><around*|(|x,t|)>+g<rsup|\<alpha\>><rsub|\<beta\>><around*|(|x,t|)>\<eta\><rsup|\<beta\>><around*|(|t|)>>.
-    We have
+    Directly, we have
 
     <\equation*>
-      <wide|L|^><rsub|F>=<wide|L|^><rsub|f>+<wide|L|^><rsub|g<rsub|\<beta\>>>
+      <wide|L|^><rsub|F<rsub|\<eta\>>>=<wide|L|^><rsub|f>+<wide|L|^><rsub|g<rsub|\<beta\>>>
       \<eta\><rsup|\<beta\>>.
     </equation*>
 
-    Then, we have <math|><math|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t+\<Delta\>t><around*|[|\<eta\>|]>=exp<around*|(|-<wide|L|^><rsub|F<rsub|\<eta\>>>\<Delta\>t|)>>.
-    Then,
+    Then, we have <math|><math|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t+\<Delta\>t><around*|[|\<eta\>|]>=exp<around*|(|-<wide|L|^><rsub|F<rsub|\<eta\>>>\<Delta\>t|)>>.<\footnote>
+      TODO: needs some proof.
+    </footnote> Then,
 
     <\align>
       <tformat|<table|<row|<cell|<around*|\<langle\>|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t+\<Delta\>t><around*|[|\<cdummy\>|]>|\<rangle\>>=>|<cell|<big|int>\<mathd\>\<eta\><around*|(|t|)>
@@ -385,18 +386,33 @@
       exp<around*|(|-<frac|1|2> \<Delta\>t \<delta\><rsub|\<alpha\>\<beta\>>
       \<eta\><rsup|\<alpha\>><around*|(|t|)>
       \<eta\><rsup|\<beta\>><around*|(|t|)>|)>
-      <around*|(|1-<wide|L|^><rsub|F<rsub|\<eta\>>>\<Delta\>t+<frac|1|2><around*|(|<wide|L|^><rsub|F<rsub|\<eta\>>>\<Delta\>t|)><rsup|2>+\<cdots\>|)>>>|<row|<cell|=>|<cell|1-<around*|\<langle\>|<wide|L|^><rsub|F<rsub|\<eta\>>>|\<rangle\>>\<Delta\>t+<frac|1|2><around*|\<langle\>|<around*|(|<wide|L|^><rsub|F<rsub|\<eta\>>>\<Delta\>t|)><rsup|2>|\<rangle\>>+\<cdots\>>>>>
+      <around*|(|1-<wide|L|^><rsub|F<rsub|\<eta\>>>\<Delta\>t+<frac|1|2><around*|(|<wide|L|^><rsub|F<rsub|\<eta\>>>\<Delta\>t|)><rsup|2>+\<cdots\>|)>>>|<row|<cell|=>|<cell|1-<around*|\<langle\>|<wide|L|^><rsub|F<rsub|\<eta\>>>
+      \<Delta\>t|\<rangle\>>+<frac|1|2><around*|\<langle\>|<around*|(|<wide|L|^><rsub|F<rsub|\<eta\>>>\<Delta\>t|)><rsup|2>|\<rangle\>>+\<cdots\>>>>>
     </align>
 
     Since <math|<around*|\<langle\>|\<eta\><rsup|\<beta\>>|\<rangle\>>=0>,
-    <math|<around*|\<langle\>|<wide|L|^><rsub|F>|\<rangle\>>=<wide|L|^><rsub|f>>.
-    And since <math|<around*|\<langle\>|\<eta\><rsup|\<alpha\>>
+    <math|<around*|\<langle\>|<wide|L|^><rsub|F<rsub|\<eta\>>>
+    \<Delta\>t|\<rangle\>>=<around*|\<langle\>|<wide|L|^><rsub|f>+<wide|L|^><rsub|g<rsub|\<beta\>>>
+    \<eta\><rsup|\<beta\>>|\<rangle\>>\<Delta\>t=<wide|L|^><rsub|f>
+    \<Delta\>t>. And since <math|<around*|\<langle\>|\<eta\><rsup|\<alpha\>>
     \<eta\><rsup|\<beta\>>|\<rangle\>>=\<delta\><rsup|\<alpha\>\<beta\>>/\<Delta\>t>,
-    <math|<around*|\<langle\>|<wide|L|^><rsub|g<rsub|\<alpha\>>>
-    \<eta\><rsup|\<alpha\>> <wide|L|^><rsub|g<rsub|\<beta\>>>
-    \<eta\><rsup|\<beta\>>|\<rangle\>>=<wide|L|^><rsub|g<rsub|\<alpha\>>>
-    <wide|L|^><rsub|g<rsub|\<beta\>>> <around*|\<langle\>|\<eta\><rsup|\<alpha\>>
-    \<eta\><rsup|\<beta\>>|\<rangle\>>=<wide|L|^><rsub|g><rsup|2>/\<Delta\>t>.
+
+    <\align>
+      <tformat|<table|<row|<cell|>|<cell|<around*|\<langle\>|<around*|(|<wide|L|^><rsub|F<rsub|\<eta\>>>
+      \<Delta\>t|)><rsup|2>|\<rangle\>>>>|<row|<cell|=>|<cell|<around*|\<langle\>|<around*|(|<wide|L|^><rsub|f>+<wide|L|^><rsub|g<rsub|\<alpha\>>>
+      \<eta\><rsup|\<alpha\>>|)> <around*|(|<wide|L|^><rsub|f>+<wide|L|^><rsub|g<rsub|\<beta\>>>
+      \<eta\><rsup|\<beta\>>|)>|\<rangle\>>
+      \<Delta\>t<rsup|2>>>|<row|<cell|<around*|{|<around*|\<langle\>|\<eta\><rsup|\<beta\>>|\<rangle\>>=0|}>=>|<cell|<wide|L|^><rsub|f><rsup|2>
+      \<Delta\>t<rsup|2>+<wide|L|^><rsub|g<rsub|\<alpha\>>>
+      <wide|L|^><rsub|g<rsub|\<beta\>>> <around*|\<langle\>|\<eta\><rsup|\<alpha\>>
+      \<eta\><rsup|\<beta\>>|\<rangle\>> \<Delta\>t<rsup|2>>>|<row|<cell|<around*|{|<around*|\<langle\>|\<eta\><rsup|\<alpha\>>
+      \<eta\><rsup|\<beta\>>|\<rangle\>>=\<delta\><rsup|\<alpha\>\<beta\>>/\<Delta\>t|}>=>|<cell|<wide|L|^><rsub|f><rsup|2>
+      \<Delta\>t<rsup|2>+<wide|L|^><rsub|g<rsub|\<alpha\>>>
+      <wide|L|^><rsub|g<rsub|\<beta\>>> \<delta\><rsup|\<alpha\>\<beta\>>
+      \<Delta\>t>>|<row|<cell|<around*|{|<wide|L|^><rsub|g><rsup|2>\<assign\>\<cdots\>|}>=>|<cell|<wide|L|^><rsub|f><rsup|2>
+      \<Delta\>t<rsup|2>+<wide|L|^><rsub|g><rsup|2> \<Delta\>t.>>>>
+    </align>
+
     Thus,
 
     <\align>
@@ -404,7 +420,7 @@
       \<Delta\>t+<frac|1|2> <around*|\<langle\>|<wide|L|^><rsub|g><rsup|2>|\<rangle\>>\<Delta\>t+o<around*|(|\<Delta\>t|)>.>>>>
     </align>
 
-    Thus
+    So, finally,
 
     <\equation*>
       <wide|H|^><rsub|<around*|(|f,g|)>>\<assign\>lim<rsub|\<Delta\>t\<rightarrow\>0><frac|<wide|1|^>-<around*|\<langle\>|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t+\<Delta\>t><around*|[|\<cdummy\>|]>|\<rangle\>>|\<Delta\>t>=<wide|L|^><rsub|f>-<frac|1|2><wide|L|^><rsub|g><rsup|2>.
@@ -499,20 +515,21 @@
     <associate|auto-1|<tuple|1|1>>
     <associate|auto-2|<tuple|1|1>>
     <associate|auto-3|<tuple|1.1|1>>
-    <associate|auto-4|<tuple|2|1>>
+    <associate|auto-4|<tuple|2|3>>
     <associate|auto-5|<tuple|2.1|3>>
-    <associate|auto-6|<tuple|2.2|3>>
-    <associate|auto-7|<tuple|2.2|4>>
+    <associate|auto-6|<tuple|2.2|4>>
     <associate|footnote-1|<tuple|1|1>>
     <associate|footnote-2|<tuple|2|1>>
     <associate|footnote-3|<tuple|3|1>>
-    <associate|footnote-4|<tuple|4|?>>
-    <associate|footnote-5|<tuple|5|?>>
+    <associate|footnote-4|<tuple|4|2>>
+    <associate|footnote-5|<tuple|5|2>>
+    <associate|footnote-6|<tuple|6|?>>
     <associate|footnr-1|<tuple|1|1>>
     <associate|footnr-2|<tuple|2|1>>
     <associate|footnr-3|<tuple|3|1>>
-    <associate|footnr-4|<tuple|4|?>>
-    <associate|footnr-5|<tuple|5|?>>
+    <associate|footnr-4|<tuple|4|2>>
+    <associate|footnr-5|<tuple|5|2>>
+    <associate|footnr-6|<tuple|6|?>>
   </collection>
 </references>
 
@@ -527,25 +544,21 @@
       Differential Equation> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-2><vspace|0.5fn>
 
-      <with|par-left|<quote|1tab>|1.1<space|2spc>Forms
+      <with|par-left|<quote|1tab>|1.1<space|2spc>Infinitesimal Pull-back
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-3>>
 
-      <with|par-left|<quote|1tab>|1.2<space|2spc>Infinitesimal Pull-back
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-4>>
-
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|2<space|2spc>Stochastic
       Differential Equation> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-5><vspace|0.5fn>
+      <no-break><pageref|auto-4><vspace|0.5fn>
 
       <with|par-left|<quote|1tab>|2.1<space|2spc>Infinitesimal Pull-back
       Expectation <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-6>>
+      <no-break><pageref|auto-5>>
 
       <with|par-left|<quote|1tab>|2.2<space|2spc>Symmetry (TODO)
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-7>>
+      <no-break><pageref|auto-6>>
     </associate>
   </collection>
 </auxiliary>
