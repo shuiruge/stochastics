@@ -1,6 +1,6 @@
 <TeXmacs|2.1.1>
 
-<style|<tuple|generic|british>>
+<style|<tuple|book|british>>
 
 <\body>
   <chapter|Stochastics>
@@ -69,13 +69,12 @@
       <around*|(|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>>
       \<psi\><rsup|<around*|(|k|)>>|)><around*|(|x<rprime|'>|)>=<around*|(|1/k!|)>
       \<psi\><rsup|<around*|(|k|)>><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>><around*|(|<wide|T|^><rsub|t<rprime|'>\<rightarrow\>t>
-      x<rprime|'>|)><big|wedge><rsub|i=1><rsup|k><around*|(|T
-      <wide|T|^><rsub|t<rprime|'>\<rightarrow\>t>|)><rsup|\<alpha\><rsub|i>><rsub|\<beta\><rsub|i>><around*|(|x<rprime|'>|)>
+      x<rprime|'>|)><big|wedge><rsub|i=1><rsup|k><around*|(|<with|font|cal|D><wide|T|^><rsub|t<rprime|'>\<rightarrow\>t>|)><rsup|\<alpha\><rsub|i>><rsub|\<beta\><rsub|i>><around*|(|x<rprime|'>|)>
       \<mathd\>x<rprime|'><rsup|\<beta\><rsub|i>>,
     </equation>
 
-    where <math|T <wide|T|^><rsub|t<rprime|'>\<rightarrow\>t>> denotes the
-    Jacobian of <math|<wide|T|^><rsub|t<rprime|'>\<rightarrow\>t>.>
+    where <math|<with|font|cal|D><wide|T|^><rsub|t<rprime|'>\<rightarrow\>t>>
+    denotes the Jacobian of <math|<wide|T|^><rsub|t<rprime|'>\<rightarrow\>t>.>
   </lemma>
 
   <small|<\proof>
@@ -96,8 +95,7 @@
     <\equation*>
       \<psi\><rprime|'><rsup|<around*|(|k|)>><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>><around*|(|x<rprime|'>|)>
       \<mathd\>x<rprime|'><rsup|\<alpha\><rsub|1>>\<wedge\>\<cdots\>\<wedge\>\<mathd\>x<rprime|'><rsup|\<alpha\><rsub|k>>=\<psi\><rsup|<around*|(|k|)>><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>><around*|(|<wide|T|^><rsub|t<rprime|'>\<rightarrow\>t>
-      x<rprime|'>|)><big|wedge><rsub|i=1><rsup|k><around*|(|T
-      <wide|T|^><rsub|t<rprime|'>\<rightarrow\>t>|)><rsup|\<alpha\><rsub|i>><rsub|\<beta\><rsub|i>><around*|(|x<rprime|'>|)>
+      x<rprime|'>|)><big|wedge><rsub|i=1><rsup|k><around*|(|<with|font|cal|D><wide|T|^><rsub|t<rprime|'>\<rightarrow\>t>|)><rsup|\<alpha\><rsub|i>><rsub|\<beta\><rsub|i>><around*|(|x<rprime|'>|)>
       \<mathd\>x<rprime|'><rsup|\<beta\><rsub|i>>.
     </equation*>
 
@@ -107,8 +105,7 @@
       <around*|(|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>>
       \<psi\><rsup|<around*|(|k|)>>|)><around*|(|x<rprime|'>|)>=<around*|(|1/k!|)>
       \<psi\><rsup|<around*|(|k|)>><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>><around*|(|<wide|T|^><rsub|t<rprime|'>\<rightarrow\>t>
-      x<rprime|'>|)><big|wedge><rsub|i=1><rsup|k><around*|(|T
-      <wide|T|^><rsub|t<rprime|'>\<rightarrow\>t>|)><rsup|\<alpha\><rsub|i>><rsub|\<beta\><rsub|i>><around*|(|x<rprime|'>|)>
+      x<rprime|'>|)><big|wedge><rsub|i=1><rsup|k><around*|(|<with|font|cal|D><wide|T|^><rsub|t<rprime|'>\<rightarrow\>t>|)><rsup|\<alpha\><rsub|i>><rsub|\<beta\><rsub|i>><around*|(|x<rprime|'>|)>
       \<mathd\>x<rprime|'><rsup|\<beta\><rsub|i>>.
     </equation*>
   </proof>>
@@ -175,9 +172,9 @@
     As <math|t<rprime|'>=t+\<Delta\>t> with <math|\<Delta\>t> tiny, we have
     <math|<wide|T|^><rsub|t<rprime|'>\<rightarrow\>t>
     x<rprime|'>=x<rprime|'>-f<around*|(|t<rprime|'>,x<rprime|'>|)>
-    \<Delta\>t>. Then, <math|T <wide|T|^><rsub|t<rprime|'>\<rightarrow\>t>=1-T
-    f \<Delta\>t>, where <math|T f> denotes the Jacobian of <math|f>. Now,
-    insert this two expressions into the definition of
+    \<Delta\>t>. Then, <math|<with|font|cal|D><wide|T|^><rsub|t<rprime|'>\<rightarrow\>t>=1-<with|font|cal|D>f
+    \<Delta\>t>, where <math|<with|font|cal|D>f> denotes the Jacobian of
+    <math|f>. Now, insert this two expressions into the definition of
     <math|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>>
     \<psi\><rsup|<around*|(|k|)>>>, we find
 
@@ -546,58 +543,61 @@
 
 <\initial>
   <\collection>
+    <associate|font|ENR>
     <associate|font-base-size|8>
+    <associate|font-family|rm>
     <associate|page-medium|paper>
+    <associate|page-screen-margin|true>
   </collection>
 </initial>
 
 <\references>
   <\collection>
     <associate|auto-1|<tuple|1|1>>
-    <associate|auto-2|<tuple|1|1>>
-    <associate|auto-3|<tuple|1.1|1>>
-    <associate|auto-4|<tuple|2|3>>
-    <associate|auto-5|<tuple|2.1|3>>
-    <associate|auto-6|<tuple|2.2|4>>
-    <associate|footnote-1|<tuple|1|1>>
-    <associate|footnote-2|<tuple|2|1>>
-    <associate|footnote-3|<tuple|3|1>>
-    <associate|footnote-4|<tuple|4|2>>
-    <associate|footnote-5|<tuple|5|2>>
-    <associate|footnote-6|<tuple|6|3>>
-    <associate|footnr-1|<tuple|1|1>>
-    <associate|footnr-2|<tuple|2|1>>
-    <associate|footnr-3|<tuple|3|1>>
-    <associate|footnr-4|<tuple|4|2>>
-    <associate|footnr-5|<tuple|5|2>>
-    <associate|footnr-6|<tuple|6|3>>
+    <associate|auto-2|<tuple|1.1|1>>
+    <associate|auto-3|<tuple|1.1.1|1>>
+    <associate|auto-4|<tuple|1.2|2>>
+    <associate|auto-5|<tuple|1.2.1|3>>
+    <associate|auto-6|<tuple|1.2.2|3>>
+    <associate|footnote-1.1|<tuple|1.1|1>>
+    <associate|footnote-1.2|<tuple|1.2|1>>
+    <associate|footnote-1.3|<tuple|1.3|1>>
+    <associate|footnote-1.4|<tuple|1.4|1>>
+    <associate|footnote-1.5|<tuple|1.5|1>>
+    <associate|footnote-1.6|<tuple|1.6|3>>
+    <associate|footnr-1.1|<tuple|1.1|1>>
+    <associate|footnr-1.2|<tuple|1.2|1>>
+    <associate|footnr-1.3|<tuple|1.3|1>>
+    <associate|footnr-1.4|<tuple|1.4|1>>
+    <associate|footnr-1.5|<tuple|1.5|1>>
+    <associate|footnr-1.6|<tuple|1.6|3>>
   </collection>
 </references>
 
 <\auxiliary>
   <\collection>
     <\associate|toc>
-      <vspace*|2fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-size|<quote|1.19>|1<space|2spc>Stochastics>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>Stochastics>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-1><vspace|1fn>
+      <no-break><pageref|auto-1><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>Ordinary
-      Differential Equation> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-2><vspace|0.5fn>
+      1.1<space|2spc>Ordinary Differential Equation
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-2>
 
-      <with|par-left|<quote|1tab>|1.1<space|2spc>Infinitesimal Pull-back
+      <with|par-left|<quote|1tab>|1.1.1<space|2spc>Infinitesimal Pull-back
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-3>>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|2<space|2spc>Stochastic
-      Differential Equation> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-4><vspace|0.5fn>
+      1.2<space|2spc>Stochastic Differential Equation
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-4>
 
-      <with|par-left|<quote|1tab>|2.1<space|2spc>Infinitesimal Pull-back
+      <with|par-left|<quote|1tab>|1.2.1<space|2spc>Infinitesimal Pull-back
       Expectation <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-5>>
 
-      <with|par-left|<quote|1tab>|2.2<space|2spc>Symmetry (TODO)
+      <with|par-left|<quote|1tab>|1.2.2<space|2spc>Symmetry (TODO)
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-6>>
     </associate>
