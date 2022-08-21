@@ -19,13 +19,16 @@
 
   This ordinary differential equation induces a push-forward operator,
   <math|<wide|T|^><rsub|t\<rightarrow\>t<rprime|'>>:\<bbb-R\>\<times\>\<bbb-R\>\<rightarrow\>\<cal-M\>\<rightarrow\>\<cal-M\>><\footnote>
-    Notation <math|A\<rightarrow\>B\<rightarrow\>C> in function definition
+    The notation <math|A\<rightarrow\>B\<rightarrow\>C> in declarations
     always means <math|A\<rightarrow\><around*|(|B\<rightarrow\>C|)>>.
+    Further, <math|A\<rightarrow\>B\<rightarrow\>\<cdots\>> means
+    <math|A\<rightarrow\><around*|(|B\<rightarrow\><around*|(|\<cdots\>|)>|)>>.
+    This is a useful convension from <samp|Haskell>.
   </footnote>, which pushes the particle on position on
   <math|<with|font|cal|M>> at time <math|t> to another position on
   <math|<with|font|cal|M>> at time <math|t<rprime|'>>.
 
-  <subsection|Forms>
+  \;
 
   Let <math|\<Omega\><rsup|k><around*|(|\<cal-M\>|)>> the space of
   <math|k>-forms on <math|\<cal-M\>>, where
@@ -37,8 +40,8 @@
     <math|k>-forms is equivalent to backward pushing the mass unit, as the
     following discussion shows.
   </footnote>, <math|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>>:\<bbb-R\>\<times\>\<bbb-R\>\<rightarrow\>\<Omega\><rsup|k><around*|(|\<cal-M\>|)>\<rightarrow\>\<Omega\><rsup|k><around*|(|\<cal-M\>|)>>,
-  which describes the transition of <math|k>-form, or say mass unit, from
-  time <math|t> to <math|t<rprime|'>>.
+  which describes the transition of <math|k>-form from time <math|t> to
+  <math|t<rprime|'>>.
 
   Precisely, consider <math|\<forall\>\<psi\><rsup|<around*|(|k|)>>\<in\>\<Omega\><rsup|k><around*|(|\<cal-M\>|)>>,
   we can write it explicitly by indices, as
@@ -54,9 +57,9 @@
   <math|\<psi\><rsup|<around*|(|k|)>><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>><around*|(|x|)>>
   can be viewed as the local density at <math|x> and the
   <math|\<mathd\>x<rsup|\<alpha\><rsub|1>>\<wedge\>\<cdots\>\<wedge\>\<mathd\>x<rsup|\<alpha\><rsub|k>>>
-  as volume unit. Thus, <math|\<psi\><rsup|<around*|(|k|)>><around*|(|x|)>>,
+  as area or volume unit. Thus, <math|\<psi\><rsup|<around*|(|k|)>><around*|(|x|)>>,
   as a whole, is the mass unit. <math|<wide|T|^><rsup|\<ast\>>> is thus is a
-  forward-pushing transition of mass unit.
+  forward pushing transition of mass unit.
 
   <\lemma>
     Explicitly, we have
@@ -97,7 +100,7 @@
       \<mathd\>x<rprime|'><rsup|\<beta\><rsub|i>>.
     </equation*>
 
-    Insert back the <math|1/k!> factor, we arrive at
+    Inserting back the <math|<around*|(|1/k!|)>> factor, we arrive at
 
     <\equation*>
       <wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>>
@@ -111,14 +114,14 @@
 
   <subsection|Infinitesimal Pull-back>
 
-  Now, we try to find the explicit expression of
+  Now, we try to derive the explicit expression of
   <math|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>>> depending
   on <math|f<rsup|a>> in the limit <math|t<rprime|'>\<rightarrow\>t>. This
-  infinitesimal version of bull-back can be described by Lie derivative.
+  infinitesimal version of pull-back can be described by Lie derivative.
 
   <\definition>
-    [Lie Derivative] Given <math|f>, Lie derivative
-    <math|<wide|L|^><rsub|f>:\<bbb-R\>\<rightarrow\>\<Omega\><rsup|k><around*|(|<with|font|cal|M>|)>\<rightarrow\>\<Omega\><rsup|k><around*|(|<with|font|cal|M>|)>>
+    [Lie Derivative] Given <math|f:<with|font|cal|M>\<times\>\<bbb-R\>\<rightarrow\>T<with|font|cal|M>>,
+    Lie derivative <math|<wide|L|^><rsub|f>:\<bbb-R\>\<rightarrow\>\<Omega\><rsup|k><around*|(|<with|font|cal|M>|)>\<rightarrow\>\<Omega\><rsup|k><around*|(|<with|font|cal|M>|)>>
     is defined as
 
     <\equation>
@@ -130,10 +133,26 @@
   </definition>
 
   Some useful definitions in exterior algebra are recalled. Operators
-  <math|<wide|\<mathd\>|^>\<assign\>\<mathd\>x<rsup|\<alpha\>>\<wedge\>\<partial\><rsub|\<alpha\>>>
-  and, for <math|\<forall\>f>, <math|<wide|i|^><rsub|f>\<assign\>f<rsup|\<alpha\>>
-  i<rsub|\<alpha\>>>, where <math|i<rsub|\<alpha\>>> is the interior product.
-  Let <math|A> and <math|B> compositions of
+  <math|<wide|\<mathd\>|^>\<assign\>\<mathd\>x<rsup|\<alpha\>>\<wedge\>\<partial\><rsub|\<alpha\>>><\footnote>
+    Operator <math|\<partial\><rsub|\<alpha\>>> is short for
+    <math|\<partial\>/\<partial\>x<rsup|\<alpha\>>>.
+  </footnote> and, for <math|\<forall\>f>,
+  <math|<wide|i|^><rsub|f>\<assign\>f<rsup|\<alpha\>> i<rsub|\<alpha\>>>,
+  where <math|i<rsub|\<alpha\>>> is the interior product<\footnote>
+    Interior product <math|i<rsub|a>:\<Omega\><rsup|k><around*|(|<with|font|cal|M>|)>\<rightarrow\>\<Omega\><rsup|k-1><around*|(|<with|font|cal|M>|)>>
+    is defined as, for <math|\<forall\>\<psi\><rsup|<around*|(|k|)>>\<in\>\<Omega\><rsup|k><around*|(|<with|font|cal|M>|)>>,
+
+    <\equation>
+      i<rsub|\<alpha\>> \<psi\><rsup|<around*|(|k|)>>\<assign\><around*|(|1/k!|)><big|sum><rsub|i=1><rsup|k><around*|(|-1|)><rsup|i-1>\<psi\><rsub|\<alpha\><rsub|1>\<cdots\><around*|(|<with|color|#a0a0a0|\<alpha\><rsub|i>\<rightarrow\>>\<alpha\>|)>\<cdots\>\<alpha\><rsub|k>>
+      \<mathd\>x<rsup|\<alpha\><rsub|1>>\<wedge\>\<cdots\>\<wedge\><with|color|#a0a0a0|\<mathd\>x<rsup|\<alpha\><rsub|i>>>\<wedge\>\<cdots\>\<wedge\>\<mathd\>x<rsup|\<alpha\><rsub|k>>,
+    </equation>
+
+    where <math|<with|color|#a0a0a0|A>> means that <math|A> is deleted, and
+    <math|<with|color|#a0a0a0|A\<rightarrow\>>B> means that the original
+    <math|A> is replaced by <math|B>. That is, it annihilates a
+    <math|\<mathd\>x<rsup|a>\<wedge\>>. The most useful property of interior
+    product is the anti-commutator <math|<around*|[|\<mathd\>x<rsup|\<alpha\>>\<wedge\>,i<rsub|\<beta\>>|]><rsub|+>=\<delta\><rsup|\<alpha\>><rsub|\<beta\>>>.
+  </footnote>. Let <math|A> and <math|B> compositions of
   <math|\<mathd\>x<rsup|a>\<wedge\>> and <math|i<rsub|a>>, then
   <math|<around*|[|A,B|]>> is commutator if both <math|A> and <math|B> have
   balanced <math|\<mathd\>x<rsup|a>\<wedge\>> and <math|i<rsub|a>>, otherwise
@@ -161,45 +180,35 @@
 
     <\equation*>
       <around*|(|1/k!|)>\<psi\><rsup|<around*|(|k|)>><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>><around*|(|x<rprime|'>-f<around*|(|x<rprime|'>|)>
-      \<Delta\>t|)><big|wedge><rsub|i=1><rsup|k><around*|(|\<delta\><rsup|\<alpha\><rsub|i>><rsub|\<beta\><rsub|i>>-\<partial\><rsub|\<beta\><rsub|i>>f<rsup|\<alpha\><rsub|i>><around*|(|x<rprime|'>|)>
+      \<Delta\>t|)><big|wedge><rsub|i=1><rsup|k><around*|(|\<delta\><rsup|\<alpha\><rsub|i>><rsub|\<beta\><rsub|i>>-<around*|(|\<partial\><rsub|\<beta\><rsub|i>>f<rsup|\<alpha\><rsub|i>>|)><around*|(|x<rprime|'>|)>
       \<Delta\>t|)>\<mathd\>x<rprime|'><rsup|\<beta\><rsub|i>>.
     </equation*>
 
-    The first term, up to <math|<with|font|cal|O><around*|(|\<Delta\>t|)>>,
-
-    <\align>
-      <tformat|<table|<row|<cell|\<psi\><rsup|<around*|(|k|)>><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>><around*|(|x<rprime|'>-f
-      \<Delta\>t|)>=>|<cell|\<psi\><rsup|<around*|(|k|)>><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>><around*|(|x<rprime|'>|)>-
-      f<rsup|\<alpha\>><around*|(|x<rprime|'>|)>\<partial\><rsub|\<alpha\>>\<psi\><rsup|<around*|(|k|)>><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>><around*|(|x<rprime|'>|)>
-      \<Delta\>t>>|<row|<cell|=>|<cell|<around*|(|1-\<Delta\>t
-      f<rsup|\<alpha\>><around*|(|x<rprime|'>|)>
-      \<partial\><rsub|\<alpha\>>|)>\<psi\><rsup|<around*|(|k|)>><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>><around*|(|x<rprime|'>|)>.>>>>
-    </align>
-
-    Next, with the first term invariant, expand the second term, up to
+    First, consider the expansion of <math|<around*|(|1/k!|)>
+    \<psi\><rsup|<around*|(|k|)>><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>><big|wedge><rsub|i=1><rsup|k><around*|(|\<delta\><rsup|\<alpha\><rsub|i>><rsub|\<beta\><rsub|i>>-<around*|(|\<partial\><rsub|\<beta\><rsub|i>>f<rsup|\<alpha\><rsub|i>>|)><around*|(|x<rprime|'>|)>
+    \<Delta\>t|)>\<mathd\>x<rprime|'><rsup|\<beta\><rsub|i>>>, up to
     <math|<with|font|cal|O><around*|(|\<Delta\>t|)>>,
 
     <\align>
       <tformat|<table|<row|<cell|>|<cell|<around*|(|1/k!|)>
-      \<psi\><rsup|<around*|(|k|)>><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>><big|wedge><rsub|i=1><rsup|k><around*|(|\<delta\><rsup|\<alpha\><rsub|i>><rsub|\<beta\><rsub|i>>-\<partial\><rsub|\<beta\><rsub|i>>f<rsup|\<alpha\><rsub|i>><around*|(|x<rprime|'>|)>
+      \<psi\><rsup|<around*|(|k|)>><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>><big|wedge><rsub|i=1><rsup|k><around*|(|\<delta\><rsup|\<alpha\><rsub|i>><rsub|\<beta\><rsub|i>>-<around*|(|\<partial\><rsub|\<beta\><rsub|i>>f<rsup|\<alpha\><rsub|i>>|)><around*|(|x<rprime|'>|)>
       \<Delta\>t|)>\<mathd\>x<rprime|'><rsup|\<beta\><rsub|i>>>>|<row|<cell|=>|<cell|<around*|(|1/k!|)>
       \<psi\><rsup|<around*|(|k|)>><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>>\<mathd\>x<rsup|\<alpha\><rsub|1>>\<wedge\>\<cdots\>\<wedge\>\<mathd\>x<rsup|\<alpha\><rsub|k>>>>|<row|<cell|->|<cell|\<Delta\>t
       <big|sum><rsub|i=1><rsup|k><around*|(|1/k!|)>
       \<psi\><rsup|<around*|(|k|)>><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>>
-      \<partial\><rsub|\<beta\><rsub|i>>f<rsup|\<alpha\><rsub|i>><around*|(|x<rprime|'>|)>
+      <around*|(|\<partial\><rsub|\<beta\><rsub|i>>f<rsup|\<alpha\><rsub|i>>|)><around*|(|x<rprime|'>|)>
       \<mathd\>x<rsup|\<alpha\><rsub|1>>\<wedge\>\<cdots\>\<wedge\><around*|(|<with|color|#a0a0a0|\<mathd\>x<rsup|\<alpha\><rsub|i>>\<rightarrow\>>\<mathd\>x<rsup|\<beta\><rsub|i>>|)>\<wedge\>\<cdots\>\<wedge\>\<mathd\>x<rsup|\<alpha\><rsub|k>>,>>>>
     </align>
 
     where <math|<with|color|#a0a0a0|A\<rightarrow\>>B> means that the
-    original <math|A> is replaced by <math|B>.
-
-    Now, we show that summation in the second term equals to
-    <math|\<partial\><rsub|\<beta\>> f<rsup|\<alpha\>><around*|(|x<rprime|'>|)>
+    original <math|A> is replaced by <math|B>. Now, we show that summation in
+    the last line equals to <math|\<partial\><rsub|\<beta\>>
+    f<rsup|\<alpha\>><around*|(|x<rprime|'>|)>
     \<mathd\>x<rsup|\<beta\>>\<wedge\>i<rsub|\<alpha\>>
     \<psi\><rsup|<around*|(|k|)>>>. Recall that
 
     <\equation*>
-      i<rsub|\<alpha\>> \<psi\><rsup|<around*|(|k|)>>=<around*|(|1/k!|)><big|sum><rsub|i=1><rsup|k><around*|(|-1|)><rsup|i-1>\<psi\><rsub|\<alpha\><rsub|1>\<cdots\><around*|(|<with|color|#a0a0a0|\<alpha\><rsub|i>\<rightarrow\>>\<alpha\>|)>\<cdots\>\<alpha\><rsub|k>>
+      i<rsub|\<alpha\>> \<psi\><rsup|<around*|(|k|)>>\<assign\><around*|(|1/k!|)><big|sum><rsub|i=1><rsup|k><around*|(|-1|)><rsup|i-1>\<psi\><rsub|\<alpha\><rsub|1>\<cdots\><around*|(|<with|color|#a0a0a0|\<alpha\><rsub|i>\<rightarrow\>>\<alpha\>|)>\<cdots\>\<alpha\><rsub|k>>
       \<mathd\>x<rsup|\<alpha\><rsub|1>>\<wedge\>\<cdots\>\<wedge\><with|color|#a0a0a0|\<mathd\>x<rsup|\<alpha\><rsub|i>>>\<wedge\>\<cdots\>\<wedge\>\<mathd\>x<rsup|\<alpha\><rsub|k>>,
     </equation*>
 
@@ -207,22 +216,22 @@
     deleted. Indeed,
 
     <\align>
-      <tformat|<table|<row|<cell|>|<cell|\<partial\><rsub|\<beta\>>
-      f<rsup|\<alpha\>><around*|(|x<rprime|'>|)>
+      <tformat|<table|<row|<cell|>|<cell|<around*|(|\<partial\><rsub|\<beta\>>
+      f<rsup|\<alpha\>>|)><around*|(|x<rprime|'>|)>
       \<mathd\>x<rsup|\<beta\>>\<wedge\>i<rsub|\<alpha\>>
-      \<psi\><rsup|<around*|(|k|)>>>>|<row|<cell|=>|<cell|\<partial\><rsub|\<beta\>>
-      f<rsup|\<alpha\>><around*|(|x<rprime|'>|)>
+      \<psi\><rsup|<around*|(|k|)>>>>|<row|<cell|=>|<cell|<around*|(|\<partial\><rsub|\<beta\>>
+      f<rsup|\<alpha\>>|)><around*|(|x<rprime|'>|)>
       \<mathd\>x<rsup|\<beta\>>\<wedge\><around*|(|1/k!|)><big|sum><rsub|i=1><rsup|k><around*|(|-1|)><rsup|i-1>\<psi\><rsub|\<alpha\><rsub|1>\<cdots\><around*|(|<with|color|#a0a0a0|\<alpha\><rsub|i>\<rightarrow\>>\<alpha\>|)>\<cdots\>\<alpha\><rsub|k>>
-      \<mathd\>x<rsup|\<alpha\><rsub|1>>\<wedge\>\<cdots\>\<wedge\><with|color|#a0a0a0|\<mathd\>x<rsup|\<alpha\><rsub|i>>>\<wedge\>\<cdots\>\<wedge\>\<mathd\>x<rsup|\<alpha\><rsub|k>>>>|<row|<cell|=>|<cell|\<partial\><rsub|\<beta\>>
-      f<rsup|\<alpha\>><around*|(|x<rprime|'>|)>
+      \<mathd\>x<rsup|\<alpha\><rsub|1>>\<wedge\>\<cdots\>\<wedge\><with|color|#a0a0a0|\<mathd\>x<rsup|\<alpha\><rsub|i>>>\<wedge\>\<cdots\>\<wedge\>\<mathd\>x<rsup|\<alpha\><rsub|k>>>>|<row|<cell|=>|<cell|<around*|(|\<partial\><rsub|\<beta\>>
+      f<rsup|\<alpha\>>|)><around*|(|x<rprime|'>|)>
       <big|sum><rsub|i=1><rsup|k><around*|(|1/k!|)>
       \<psi\><rsub|\<alpha\><rsub|1>\<cdots\><around*|(|<with|color|#a0a0a0|\<alpha\><rsub|i>\<rightarrow\>>\<alpha\>|)>\<cdots\>\<alpha\><rsub|k>>
-      \<mathd\>x<rsup|\<alpha\><rsub|1>>\<wedge\>\<cdots\>\<wedge\><around*|(|<with|color|#a0a0a0|\<mathd\>x<rsup|\<alpha\><rsub|i>>\<rightarrow\>>\<mathd\>x<rsup|\<beta\>>|)>\<wedge\>\<cdots\>\<wedge\>\<mathd\>x<rsup|\<alpha\><rsub|k>>>>|<row|<cell|=>|<cell|<big|sum><rsub|i=1><rsup|k>\<partial\><rsub|\<beta\><rsub|i>>
-      f<rsup|\<alpha\><rsub|i>><around*|(|x<rprime|'>|)> <around*|(|1/k!|)>
-      \<psi\><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|i>\<cdots\>\<alpha\><rsub|k>>
-      \<mathd\>x<rsup|\<alpha\><rsub|1>>\<wedge\>\<cdots\>\<wedge\><around*|(|<with|color|#a0a0a0|\<mathd\>x<rsup|\<alpha\><rsub|i>>\<rightarrow\>>\<mathd\>x<rsup|\<beta\><rsub|i>>|)>\<wedge\>\<cdots\>\<wedge\>\<mathd\>x<rsup|\<alpha\><rsub|k>>>>|<row|<cell|=>|<cell|<big|sum><rsub|i=1><rsup|k>\<partial\><rsub|\<beta\><rsub|i>>
-      f<rsup|\<alpha\><rsub|i>><around*|(|x<rprime|'>|)> <around*|(|1/k!|)>
-      \<psi\><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>>
+      \<mathd\>x<rsup|\<alpha\><rsub|1>>\<wedge\>\<cdots\>\<wedge\><around*|(|<with|color|#a0a0a0|\<mathd\>x<rsup|\<alpha\><rsub|i>>\<rightarrow\>>\<mathd\>x<rsup|\<beta\>>|)>\<wedge\>\<cdots\>\<wedge\>\<mathd\>x<rsup|\<alpha\><rsub|k>>>>|<row|<cell|=>|<cell|<big|sum><rsub|i=1><rsup|k><around*|(|\<partial\><rsub|\<beta\><rsub|i>>
+      f<rsup|\<alpha\><rsub|i>>|)><around*|(|x<rprime|'>|)>
+      <around*|(|1/k!|)> \<psi\><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|i>\<cdots\>\<alpha\><rsub|k>>
+      \<mathd\>x<rsup|\<alpha\><rsub|1>>\<wedge\>\<cdots\>\<wedge\><around*|(|<with|color|#a0a0a0|\<mathd\>x<rsup|\<alpha\><rsub|i>>\<rightarrow\>>\<mathd\>x<rsup|\<beta\><rsub|i>>|)>\<wedge\>\<cdots\>\<wedge\>\<mathd\>x<rsup|\<alpha\><rsub|k>>>>|<row|<cell|=>|<cell|<big|sum><rsub|i=1><rsup|k><around*|(|\<partial\><rsub|\<beta\><rsub|i>>
+      f<rsup|\<alpha\><rsub|i>>|)><around*|(|x<rprime|'>|)>
+      <around*|(|1/k!|)> \<psi\><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>>
       \<mathd\>x<rsup|\<alpha\><rsub|1>>\<wedge\>\<cdots\>\<wedge\><around*|(|<with|color|#a0a0a0|\<mathd\>x<rsup|\<alpha\><rsub|i>>\<rightarrow\>>\<mathd\>x<rsup|\<beta\><rsub|i>>|)>\<wedge\>\<cdots\>\<wedge\>\<mathd\>x<rsup|\<alpha\><rsub|k>>,>>>>
     </align>
 
@@ -234,26 +243,37 @@
     Thus,
 
     <\equation*>
-      <around*|(|1/k!|)> \<psi\><rsup|<around*|(|k|)>><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>><big|wedge><rsub|i=1><rsup|k><around*|(|\<delta\><rsup|\<alpha\><rsub|i>><rsub|\<beta\><rsub|i>>-\<partial\><rsub|\<beta\><rsub|i>>f<rsup|\<alpha\><rsub|i>><around*|(|x<rprime|'>|)>
+      <around*|(|1/k!|)> \<psi\><rsup|<around*|(|k|)>><rsub|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|k>><big|wedge><rsub|i=1><rsup|k><around*|(|\<delta\><rsup|\<alpha\><rsub|i>><rsub|\<beta\><rsub|i>>-<around*|(|\<partial\><rsub|\<beta\><rsub|i>>f<rsup|\<alpha\><rsub|i>>|)><around*|(|x<rprime|'>|)>
       \<Delta\>t|)>\<mathd\>x<rprime|'><rsup|\<beta\><rsub|i>>=<around*|(|1-\<Delta\>t
-      \<partial\><rsub|\<beta\>> f<rsup|\<alpha\>><around*|(|x<rprime|'>|)>
+      <around*|(|\<partial\><rsub|\<beta\>>
+      f<rsup|\<alpha\>>|)><around*|(|x<rprime|'>|)>
       \<mathd\>x<rsup|\<beta\>>\<wedge\>i<rsub|\<alpha\>>|)>
       \<psi\><rsup|<around*|(|k|)>>.
     </equation*>
 
-    Combine the results together, we arrive at
+    So, we find
 
-    <\equation*>
-      <wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t+\<Delta\>t>
-      \<psi\><rsup|<around*|(|k|)>>=\<psi\><rsup|<around*|(|k|)>>-<around*|(|f<rsup|a>\<partial\><rsub|a>+\<partial\><rsub|\<beta\>>f<rsup|\<alpha\>>
+    <\align>
+      <tformat|<table|<row|<cell|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t+\<Delta\>t>
+      \<psi\><rsup|<around*|(|k|)>>=>|<cell|<around*|(|1-\<Delta\>t
+      <around*|(|\<partial\><rsub|\<beta\>>
+      f<rsup|\<alpha\>>|)><around*|(|x<rprime|'>|)>
       \<mathd\>x<rsup|\<beta\>>\<wedge\>i<rsub|\<alpha\>>|)>
-      \<psi\><rsup|<around*|(|k|)>>\<Delta\>t+<with|font|cal|O><around*|(|\<Delta\>t<rsup|2>|)>.
-    </equation*>
+      \<psi\><rsup|<around*|(|k|)>><around*|(|x<rprime|'>-f
+      \<Delta\>t|)>>>|<row|<cell|=>|<cell|<around*|(|1-\<Delta\>t
+      <around*|(|\<partial\><rsub|\<beta\>>
+      f<rsup|\<alpha\>>|)><around*|(|x<rprime|'>|)>
+      \<mathd\>x<rsup|\<beta\>>\<wedge\>i<rsub|\<alpha\>>|)>
+      <around*|(|1-\<Delta\>t f<rsup|\<alpha\>><around*|(|x<rprime|'>|)>
+      \<partial\><rsub|\<alpha\>>|)>\<psi\><rsup|<around*|(|k|)>><around*|(|x<rprime|'>|)>>>|<row|<cell|=>|<cell|\<psi\><rsup|<around*|(|k|)>>-<around*|(|f<rsup|a>\<partial\><rsub|a>+<around*|(|\<partial\><rsub|\<beta\>>f<rsup|\<alpha\>>|)>
+      \<mathd\>x<rsup|\<beta\>>\<wedge\>i<rsub|\<alpha\>>|)>
+      \<psi\><rsup|<around*|(|k|)>>\<Delta\>t+<with|font|cal|O><around*|(|\<Delta\>t<rsup|2>|)>.>>>>
+    </align>
 
     Thus,
 
     <\align>
-      <tformat|<table|<row|<cell|<wide|L|^><rsub|f>\<assign\>>|<cell|lim<rsub|\<Delta\>t\<rightarrow\>0><frac|1-<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t+\<Delta\>t>|\<Delta\>t>>>|<row|<cell|=>|<cell|f<rsup|a>\<partial\><rsub|a>+\<partial\><rsub|\<beta\>>f<rsup|\<alpha\>>
+      <tformat|<table|<row|<cell|<wide|L|^><rsub|f>\<assign\>>|<cell|lim<rsub|\<Delta\>t\<rightarrow\>0><frac|1-<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t+\<Delta\>t>|\<Delta\>t>>>|<row|<cell|=>|<cell|f<rsup|a>\<partial\><rsub|a>+<around*|(|\<partial\><rsub|\<beta\>>f<rsup|\<alpha\>>|)>
       \<mathd\>x<rsup|\<beta\>>\<wedge\>i<rsub|\<alpha\>>.>>>>
     </align>
 
@@ -264,14 +284,14 @@
     <\align>
       <tformat|<table|<row|<cell|<around*|[|<wide|\<mathd\>|^>,<wide|i|^><rsub|f>|]>=>|<cell|\<mathd\>x<rsup|\<alpha\>>\<wedge\>\<partial\><rsub|\<alpha\>>
       f<rsup|\<beta\>> i<rsub|\<beta\>>+f<rsup|\<beta\>>
-      i<rsub|\<beta\>>\<mathd\>x<rsup|\<alpha\>>\<wedge\>\<partial\><rsub|\<alpha\>>>>|<row|<cell|=>|<cell|\<partial\><rsub|\<alpha\>>
-      f<rsup|\<beta\>>\<mathd\>x<rsup|\<alpha\>>\<wedge\>
+      i<rsub|\<beta\>>\<mathd\>x<rsup|\<alpha\>>\<wedge\>\<partial\><rsub|\<alpha\>>>>|<row|<cell|=>|<cell|<around*|(|\<partial\><rsub|\<alpha\>>
+      f<rsup|\<beta\>>|)>\<mathd\>x<rsup|\<alpha\>>\<wedge\>
       i<rsub|\<beta\>>+f<rsup|\<beta\>> \<mathd\>x<rsup|\<alpha\>>\<wedge\>
       i<rsub|\<beta\>> \<partial\><rsub|\<alpha\>>>>|<row|<cell|<around*|{|<around*|[|\<mathd\>x<rsup|a>\<wedge\>,i<rsub|\<beta\>>|]>=\<delta\><rsup|\<alpha\>><rsub|\<beta\>>|}>+>|<cell|f<rsup|\<beta\>>
       \<delta\><rsup|\<alpha\>><rsub|\<beta\>>\<partial\><rsub|\<alpha\>>-f<rsup|\<beta\>>
       \<mathd\>x<rsup|\<alpha\>>\<wedge\>i<rsub|\<beta\>>
-      \<partial\><rsub|\<alpha\>>>>|<row|<cell|=>|<cell|\<partial\><rsub|\<alpha\>>
-      f<rsup|\<beta\>>\<mathd\>x<rsup|\<alpha\>>\<wedge\>
+      \<partial\><rsub|\<alpha\>>>>|<row|<cell|=>|<cell|<around*|(|\<partial\><rsub|\<alpha\>>
+      f<rsup|\<beta\>>|)>\<mathd\>x<rsup|\<alpha\>>\<wedge\>
       i<rsub|\<beta\>>+f<rsup|a>\<partial\><rsub|a>,>>>>
     </align>
 
@@ -476,21 +496,23 @@
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|1|1|..\\..\\..\\..\\AppData\\Roaming\\TeXmacs\\texts\\scratch\\no_name_1.tm>>
-    <associate|auto-2|<tuple|1|1|..\\..\\..\\..\\AppData\\Roaming\\TeXmacs\\texts\\scratch\\no_name_1.tm>>
-    <associate|auto-3|<tuple|1.1|1|..\\..\\..\\..\\AppData\\Roaming\\TeXmacs\\texts\\scratch\\no_name_1.tm>>
-    <associate|auto-4|<tuple|1.2|2|..\\..\\..\\..\\AppData\\Roaming\\TeXmacs\\texts\\scratch\\no_name_1.tm>>
-    <associate|auto-5|<tuple|2|2|..\\..\\..\\..\\AppData\\Roaming\\TeXmacs\\texts\\scratch\\no_name_1.tm>>
-    <associate|auto-6|<tuple|2.1|?|..\\..\\..\\..\\AppData\\Roaming\\TeXmacs\\texts\\scratch\\no_name_1.tm>>
-    <associate|auto-7|<tuple|2.2|?|..\\..\\..\\..\\AppData\\Roaming\\TeXmacs\\texts\\scratch\\no_name_1.tm>>
-    <associate|auto-8|<tuple|3.1|?|..\\..\\..\\..\\AppData\\Roaming\\TeXmacs\\texts\\scratch\\no_name_1.tm>>
-    <associate|auto-9|<tuple|3.2|?|..\\..\\..\\..\\AppData\\Roaming\\TeXmacs\\texts\\scratch\\no_name_1.tm>>
-    <associate|footnote-1|<tuple|1|?|..\\..\\..\\..\\AppData\\Roaming\\TeXmacs\\texts\\scratch\\no_name_1.tm>>
-    <associate|footnote-2|<tuple|2|?|..\\..\\..\\..\\AppData\\Roaming\\TeXmacs\\texts\\scratch\\no_name_1.tm>>
-    <associate|footnote-3|<tuple|3|?|..\\..\\..\\..\\AppData\\Roaming\\TeXmacs\\texts\\scratch\\no_name_1.tm>>
-    <associate|footnr-1|<tuple|1|?|..\\..\\..\\..\\AppData\\Roaming\\TeXmacs\\texts\\scratch\\no_name_1.tm>>
-    <associate|footnr-2|<tuple|2|?|..\\..\\..\\..\\AppData\\Roaming\\TeXmacs\\texts\\scratch\\no_name_1.tm>>
-    <associate|footnr-3|<tuple|3|?|..\\..\\..\\..\\AppData\\Roaming\\TeXmacs\\texts\\scratch\\no_name_1.tm>>
+    <associate|auto-1|<tuple|1|1>>
+    <associate|auto-2|<tuple|1|1>>
+    <associate|auto-3|<tuple|1.1|1>>
+    <associate|auto-4|<tuple|2|1>>
+    <associate|auto-5|<tuple|2.1|3>>
+    <associate|auto-6|<tuple|2.2|3>>
+    <associate|auto-7|<tuple|2.2|4>>
+    <associate|footnote-1|<tuple|1|1>>
+    <associate|footnote-2|<tuple|2|1>>
+    <associate|footnote-3|<tuple|3|1>>
+    <associate|footnote-4|<tuple|4|?>>
+    <associate|footnote-5|<tuple|5|?>>
+    <associate|footnr-1|<tuple|1|1>>
+    <associate|footnr-2|<tuple|2|1>>
+    <associate|footnr-3|<tuple|3|1>>
+    <associate|footnr-4|<tuple|4|?>>
+    <associate|footnr-5|<tuple|5|?>>
   </collection>
 </references>
 
@@ -505,17 +527,25 @@
       Differential Equation> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-2><vspace|0.5fn>
 
-      <with|par-left|<quote|1tab>|1.1<space|2spc>Infinitesimal Pull-back
+      <with|par-left|<quote|1tab>|1.1<space|2spc>Forms
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-3>>
 
+      <with|par-left|<quote|1tab>|1.2<space|2spc>Infinitesimal Pull-back
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-4>>
+
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|2<space|2spc>Stochastic
       Differential Equation> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-4><vspace|0.5fn>
+      <no-break><pageref|auto-5><vspace|0.5fn>
 
       <with|par-left|<quote|1tab>|2.1<space|2spc>Infinitesimal Pull-back
+      Expectation <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-6>>
+
+      <with|par-left|<quote|1tab>|2.2<space|2spc>Symmetry (TODO)
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-5>>
+      <no-break><pageref|auto-7>>
     </associate>
   </collection>
 </auxiliary>
