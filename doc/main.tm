@@ -151,11 +151,14 @@
     <math|A> is replaced by <math|B>. That is, it annihilates a
     <math|\<mathd\>x<rsup|a>\<wedge\>>. The most useful property of interior
     product is the anti-commutator <math|<around*|[|\<mathd\>x<rsup|\<alpha\>>\<wedge\>,i<rsub|\<beta\>>|]><rsub|+>=\<delta\><rsup|\<alpha\>><rsub|\<beta\>>>.
-  </footnote>. Let <math|A> and <math|B> compositions of
+  </footnote>. Let operators <math|A> and <math|B> compositions of
   <math|\<mathd\>x<rsup|a>\<wedge\>> and <math|i<rsub|a>>, then
-  <math|<around*|[|A,B|]>> is commutator if both <math|A> and <math|B> have
-  balanced <math|\<mathd\>x<rsup|a>\<wedge\>> and <math|i<rsub|a>>, otherwise
-  anti-commutator.
+  <math|<around*|[|A,B|]>> is commutator if both <math|A> and <math|B> are
+  closed in <math|\<Omega\><rsup|k><around*|(|<with|font|cal|M>|)>> for
+  <math|\<forall\>k> <\footnote>
+    Recall that operator <math|A> is closed in space <math|V> if
+    <math|A:V\<rightarrow\>V>.
+  </footnote>, otherwise anti-commutator.
 
   With these definitions, we conclude the explicit relatoin between <math|f>
   and <math|<wide|L|^><rsub|f>>, as follow.
@@ -506,12 +509,14 @@
     <associate|footnote-1.4|<tuple|1.4|1>>
     <associate|footnote-1.5|<tuple|1.5|1>>
     <associate|footnote-1.6|<tuple|1.6|3>>
+    <associate|footnote-1.7|<tuple|1.7|?>>
     <associate|footnr-1.1|<tuple|1.1|1>>
     <associate|footnr-1.2|<tuple|1.2|1>>
     <associate|footnr-1.3|<tuple|1.3|1>>
     <associate|footnr-1.4|<tuple|1.4|1>>
     <associate|footnr-1.5|<tuple|1.5|1>>
     <associate|footnr-1.6|<tuple|1.6|3>>
+    <associate|footnr-1.7|<tuple|1.7|?>>
   </collection>
 </references>
 
