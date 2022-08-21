@@ -8,8 +8,14 @@
   <section|Ordinary Differential Equation>
 
   Let <math|<with|font|cal|M>> a smooth manifold, and
-  <math|f:\<bbb-R\>\<times\><with|font|cal|M>\<rightarrow\>T<with|font|cal|M>>,
-  we have ordinary differential equation<\footnote>
+  <math|f:\<bbb-R\>\<rightarrow\><with|font|cal|M>\<rightarrow\>T<with|font|cal|M>>
+  <\footnote>
+    The notation <math|A\<rightarrow\>B\<rightarrow\>C> in declarations
+    always means <math|A\<rightarrow\><around*|(|B\<rightarrow\>C|)>>.
+    Further, <math|A\<rightarrow\>B\<rightarrow\>\<cdots\>> means
+    <math|A\<rightarrow\><around*|(|B\<rightarrow\><around*|(|\<cdots\>|)>|)>>.
+    This is an useful convension from <samp|Haskell>.
+  </footnote>, we have ordinary differential equation<\footnote>
     We employ Einstein's convension of summation thoroughly.
   </footnote>
 
@@ -18,16 +24,10 @@
   </equation>
 
   This ordinary differential equation induces a push-forward operator,
-  <math|<wide|T|^><rsub|t\<rightarrow\>t<rprime|'>>:\<bbb-R\>\<times\>\<bbb-R\>\<rightarrow\>\<cal-M\>\<rightarrow\>\<cal-M\>>
-  <\footnote>
-    The notation <math|A\<rightarrow\>B\<rightarrow\>C> in declarations
-    always means <math|A\<rightarrow\><around*|(|B\<rightarrow\>C|)>>.
-    Further, <math|A\<rightarrow\>B\<rightarrow\>\<cdots\>> means
-    <math|A\<rightarrow\><around*|(|B\<rightarrow\><around*|(|\<cdots\>|)>|)>>.
-    This is a useful convension from <samp|Haskell>.
-  </footnote>, which pushes the particle on position on
-  <math|<with|font|cal|M>> at time <math|t> to another position on
-  <math|<with|font|cal|M>> at time <math|t<rprime|'>>.
+  <math|<wide|T|^><rsub|t\<rightarrow\>t<rprime|'>>:\<bbb-R\>\<rightarrow\>\<bbb-R\>\<rightarrow\>\<cal-M\>\<rightarrow\>\<cal-M\>>,
+  which pushes the particle on position on <math|<with|font|cal|M>> at time
+  <math|t> to another position on <math|<with|font|cal|M>> at time
+  <math|t<rprime|'>>.
 
   \;
 
@@ -40,7 +40,7 @@
     <math|k>-forms. The name comes from the fact that forward pushing of
     <math|k>-forms is equivalent to backward pushing the mass unit, as the
     following discussion shows.
-  </footnote>, <math|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>>:\<bbb-R\>\<times\>\<bbb-R\>\<rightarrow\>\<Omega\><rsup|k><around*|(|\<cal-M\>|)>\<rightarrow\>\<Omega\><rsup|k><around*|(|\<cal-M\>|)>>,
+  </footnote>, <math|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>>:\<bbb-R\>\<rightarrow\>\<bbb-R\>\<rightarrow\>\<Omega\><rsup|k><around*|(|\<cal-M\>|)>\<rightarrow\>\<Omega\><rsup|k><around*|(|\<cal-M\>|)>>,
   which describes the transition of <math|k>-form from time <math|t> to
   <math|t<rprime|'>>.
 
@@ -77,7 +77,7 @@
     denotes the Jacobian of <math|<wide|T|^><rsub|t<rprime|'>\<rightarrow\>t>.>
   </lemma>
 
-  <small|<\proof>
+  <very-small|<\proof>
     Let <math|x<rprime|'>=<wide|T|^><rsub|t\<rightarrow\>t<rprime|'>> x> and
     <math|\<psi\><rprime|'><rsup|<around*|(|k|)>>=<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>>
     \<psi\><rsup|<around*|(|k|)>>>, by conservation of mass during the
@@ -118,7 +118,7 @@
   infinitesimal version of pull-back can be described by Lie derivative.
 
   <\definition>
-    [Lie Derivative] Given <math|f:\<bbb-R\>\<times\><with|font|cal|M>\<rightarrow\>T<with|font|cal|M>>,
+    [Lie Derivative] Given <math|f:\<bbb-R\>\<rightarrow\><with|font|cal|M>\<rightarrow\>T<with|font|cal|M>>,
     Lie derivative <math|<wide|L|^><rsub|f>:\<bbb-R\>\<rightarrow\>\<Omega\><rsup|k><around*|(|<with|font|cal|M>|)>\<rightarrow\>\<Omega\><rsup|k><around*|(|<with|font|cal|M>|)>>
     is defined as
 
@@ -168,7 +168,7 @@
     </equation>
   </theorem>
 
-  <small|<\proof>
+  <very-small|<\proof>
     As <math|t<rprime|'>=t+\<Delta\>t> with <math|\<Delta\>t> tiny, we have
     <math|<wide|T|^><rsub|t<rprime|'>\<rightarrow\>t>
     x<rprime|'>=x<rprime|'>-f<around*|(|t<rprime|'>,x<rprime|'>|)>
@@ -318,7 +318,7 @@
   where, for <math|\<forall\>t> and <math|\<alpha\>>,
   <math|\<eta\><rsup|\<alpha\>><around*|(|t|)>\<sim\><with|font|cal|N><around*|(|0,1/\<mathd\>t|)>>.
   Thus, <math|\<eta\>:\<bbb-R\>\<rightarrow\>V> with <math|V> an Euclidean
-  space, and <math|g:\<bbb-R\>\<times\><with|font|cal|M>\<rightarrow\>V\<rightarrow\>T<with|font|cal|M>>.
+  space, and <math|g:\<bbb-R\>\<rightarrow\><with|font|cal|M>\<rightarrow\>V\<rightarrow\>T<with|font|cal|M>>.
 
   \;
 
@@ -375,7 +375,7 @@
     <wide|L|^><rsub|g<rsub|\<alpha\>>><wide|L|^><rsub|g<rsub|\<beta\>>>>.
   </theorem>
 
-  <small|<\proof>
+  <very-small|<\proof>
     Given configuration of <math|\<eta\>>, let
     <math|F<rsup|\<alpha\>><rsub|\<eta\>><around*|(|t,x|)>\<assign\>f<rsup|\<alpha\>><around*|(|t,x|)>+g<rsup|\<alpha\>><rsub|\<beta\>><around*|(|t,x|)>\<eta\><rsup|\<beta\>><around*|(|t|)>>.
     Directly, we have
@@ -467,85 +467,24 @@
 
   <subsection|Symmetry (TODO)>
 
-  <\definition>
-    Given <math|A>, <math|B> is called <math|A>-exact if there exists
-    <math|X> such that
+  \;
 
-    <\equation>
-      B=<around*|[|A,X|]>.
-    </equation>
-  </definition>
+  <\bibliography|||>
+    [1] N. Dragon and F. Brandt, BRST Symmetry and Cohomology, 2012, doi:
+    <hlink|10.1142/9789814412551_0001|https://doi.org/10.1142/9789814412551_0001>.
 
-  <\lemma>
-    If <math|B> is <math|A>-exact, then <math|<around*|[|A,B|]>=0>.
-  </lemma>
+    [2] T. Tao, Differential Forms and Integration.
 
-  <\proof>
-    \;
-
-    <\align>
-      <tformat|<table|<row|<cell|<around*|[|A,B|]>=>|<cell|<around*|[|A,<around*|[|A,X|]>|]>>>|<row|<cell|=>|<cell|<around*|[|X,<around*|[|A,A|]>|]>+<around*|[|A,<around*|[|X,A|]>|]>>>|<row|<cell|=>|<cell|?>>>>
-    </align>
+    [3] Igor V. Ovchinnikov, Introduction to Supersymmetric Theory of
+    Stochastics, 2016, doi: <hlink|10.3390/e18040108|https://doi.org/10.3390/e18040108>.
 
     \;
-  </proof>
-
-  <\lemma>
-    We have decomposition
-
-    <\equation>
-      <wide|H|^>=<around*|[|<wide|\<mathd\>|^>,<wide|j|^>|]>,
-    </equation>
-
-    where <math|<wide|j|^>\<assign\><wide|i|^><rsub|f>-<frac|1|2><wide|L|^><rsub|g<rsub|\<beta\>>>\<eta\><rsup|\<beta\>>>.
-  </lemma>
-
-  That is, <math|<wide|H|^>> is <math|<wide|\<mathd\>|^>>-exact, thus,
-
-  <\equation>
-    <around*|[|<wide|\<mathd\>|^>,<wide|H|^>|]>=0.
-  </equation>
-
-  <math|<wide|\<mathd\>|^>\<psi\><rsup|<around*|(|k|)>>=0>, but there isn't
-  <math|\<varphi\><rsup|<around*|(|k-1|)>>> s.t.
-  <math|\<psi\><rsup|<around*|(|k|)>>=<wide|\<mathd\>|^>\<varphi\><rsup|<around*|(|k-1|)>>>.
-  Symmetric state.
-
-  <math|<wide|\<mathd\>|^>\<psi\><rsup|<around*|(|k|)>>\<neq\>0>.
-  <math|<wide|\<mathd\>|^><rsup|2>\<psi\><rsup|<around*|(|k|)>>=0>. Symmetry
-  breaking state. <math|tr<around*|(|<around*|\<langle\>|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>><around*|[|\<cdummy\>|]>|\<rangle\>>|)>=<big|sum><rsub|n>exp<around*|(|-E<rsub|n><around*|(|t<rprime|'>-t|)>|)>=exp<around*|(|\<lambda\><around*|(|t<rprime|'>-t|)>|)>>.
-
-  \;
-
-  <math|<wide|j|^><rsup|2>=0>. <math|<around*|[|<wide|j|^>,<wide|H|^>|]>=0>.
-
-  <math|j> is the flux. That is, for <math|\<psi\><rsup|<around*|(|D|)>>>,
-  where <math|D=dim<around*|(|<with|font|cal|M>|)>>, <math|<wide|H|^>
-  \<psi\><rsup|<around*|(|D|)>>=<wide|j|^> \<psi\><rsup|<around*|(|D|)>>>, so
-  that <math|\<partial\><rsub|t>\<psi\><rsup|<around*|(|D|)>>+<wide|j|^>
-  \<psi\><rsup|<around*|(|D|)>>=0>, indicating that <math|<wide|j|^>> is the
-  flux.
-
-  \;
-
-  \;
-
-  \;
-
-  \;
-
-  \;
-
-  \;
-
-  \;
+  </bibliography>
 </body>
 
 <\initial>
   <\collection>
-    <associate|font|ENR>
     <associate|font-base-size|8>
-    <associate|font-family|rm>
     <associate|page-medium|paper>
     <associate|page-screen-margin|true>
   </collection>
@@ -557,8 +496,10 @@
     <associate|auto-2|<tuple|1.1|1>>
     <associate|auto-3|<tuple|1.1.1|1>>
     <associate|auto-4|<tuple|1.2|2>>
-    <associate|auto-5|<tuple|1.2.1|3>>
+    <associate|auto-5|<tuple|1.2.1|2>>
     <associate|auto-6|<tuple|1.2.2|3>>
+    <associate|auto-7|<tuple|1.2.2|5>>
+    <associate|footnote-1|<tuple|1|?>>
     <associate|footnote-1.1|<tuple|1.1|1>>
     <associate|footnote-1.2|<tuple|1.2|1>>
     <associate|footnote-1.3|<tuple|1.3|1>>
@@ -600,6 +541,10 @@
       <with|par-left|<quote|1tab>|1.2.2<space|2spc>Symmetry (TODO)
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-6>>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-7><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>
