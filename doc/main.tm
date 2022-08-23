@@ -7,6 +7,8 @@
 
   <section|Ordinary Differential Equation>
 
+  <subsection|Push-forward>
+
   Let <math|<with|font|cal|M>> a smooth manifold, and
   <math|f:\<bbb-R\>\<rightarrow\><with|font|cal|M>\<rightarrow\>T<with|font|cal|M>>
   <\footnote>
@@ -29,13 +31,15 @@
   <math|t> to another position on <math|<with|font|cal|M>> at time
   <math|t<rprime|'>>.
 
-  \;
+  <subsection|Pull-back>
 
   Let <math|\<Omega\><rsup|k><around*|(|\<cal-M\>|)>> the space of
   <math|k>-forms on <math|\<cal-M\>>, where
-  <math|k\<leqslant\>dim<around*|(|<with|font|cal|M>|)>>. This ordinary
-  differential equation also induces a pull-back operator on
-  <math|k>-forms<\footnote>
+  <math|k\<leqslant\>dim<around*|(|<with|font|cal|M>|)>>.<\footnote>
+    The basic knowledge of forms is contained in Tao's very intuitive lecture
+    <reference|Reference: Differential Forms and Integration>.
+  </footnote> This ordinary differential equation also induces a pull-back
+  operator on <math|k>-forms<\footnote>
     Even though we call it something-back, but it pushes forward the
     <math|k>-forms. The name comes from the fact that forward pushing of
     <math|k>-forms is equivalent to backward pushing the mass unit, as the
@@ -124,7 +128,7 @@
     TODO
   </proof>>
 
-  <subsection|Infinitesimal Pull-back>
+  <subsection|Lie Derivative>
 
   Now, we try to derive the explicit expression of
   <math|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>>> depending
@@ -143,6 +147,8 @@
     where <math|<wide|T|^><rsup|\<ast\>>> is the pull-back induced by
     <math|f>.
   </definition>
+
+  <subsection|Cartan Magic Formula>
 
   Some useful definitions in exterior algebra are recalled. Operators
   <math|<wide|\<mathd\>|^>\<assign\>\<mathd\>x<rsup|\<alpha\>>\<wedge\>\<partial\><rsub|\<alpha\>>>
@@ -178,7 +184,7 @@
   and <math|<wide|L|^><rsub|f>>, as follow.
 
   <\theorem>
-    [Cartan's Magic Formula] We have
+    [Cartan Magic Formula] We have
 
     <\equation>
       <wide|L|^><rsub|f>=<around*|[|<wide|\<mathd\>|^>,<wide|i|^><rsub|f>|]>.
@@ -322,7 +328,7 @@
     which is <math|<wide|L|^><rsub|f>>.
   </proof>>
 
-  \;
+  <subsection|Dyson Series>
 
   From Lie derivative <math|<wide|L|^><rsub|f>>, we can go back to
   <math|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>>> via the
@@ -362,6 +368,8 @@
   </proof>>
 
   <section|Stochastic Differential Equation>
+
+  <subsection|Definitions>
 
   A direct generalization of ordinary differential equatoin is adding a
   Gaussian noise, as stochastic differential equation
@@ -409,7 +417,7 @@
 
   Higher order expectations can be obtained directly by Wick theorem.
 
-  <subsection|Infinitesimal Pull-back Expectation>
+  <subsection|Pull-back>
 
   For any configuration <math|\<eta\>> given, the stochastic differential
   equation is reduced to an ordinary differential equation. In this case, the
@@ -418,6 +426,8 @@
   We care about the expectation <math|<around*|\<langle\>|<wide|T|^><rsup|\<ast\>><rsub|t\<rightarrow\>t<rprime|'>><around*|[|\<eta\>|]>|\<rangle\>>>
   over all possible configuration of <math|\<eta\>>, especially it's
   infinitesimal version.
+
+  <subsection|Lie Derivative>
 
   As before, define the stochastic version of Lie derivative, as
 
@@ -525,7 +535,9 @@
 
   <\example>
     [Fokker-Planck Equation] In the case <math|g<rsup|\<alpha\>><rsub|\<beta\>>\<equiv\><sqrt|2T>
-    \<delta\><rsup|\<alpha\>><rsub|\<beta\>>>,
+    \<delta\><rsup|\<alpha\>><rsub|\<beta\>>>, we have
+    <math|<wide|L|^><rsub|g<rsub|\<alpha\>>>=<sqrt|2 T>
+    \<partial\><rsub|\<alpha\>>>. Thus,
 
     <\equation>
       <wide|H|^>=<around*|(|\<partial\><rsub|\<alpha\>>f<rsup|\<beta\>>|)>
@@ -549,18 +561,119 @@
     which is the Fokker-Planck equation.
   </example>
 
-  <subsection|Symmetry (TODO)>
+  <section|Topological Symmetry>
+
+  <subsection|de Rham Cohomology>
+
+  <\definition>
+    Let <math|\<psi\><rsup|<around*|(|k|)>>\<in\>\<Omega\><rsup|k><around*|(|<with|font|cal|M>|)>>.
+    Then,
+
+    <\itemize>
+      <item><math|\<psi\><rsup|<around*|(|k|)>>> is called
+      <math|<wide|\<mathd\>|^>>-closed, if
+      <math|<wide|\<mathd\>|^>\<psi\><rsup|<around*|(|k|)>>=0>; and
+
+      <item><math|\<psi\><rsup|<around*|(|k|)>>> is called
+      <math|<wide|\<mathd\>|^>>-exact, if
+      <math|\<exists\>\<psi\><rsup|<around*|(|k-1|)>>\<in\>\<Omega\><rsup|k-1><around*|(|<with|font|cal|M>|)>>
+      such that <math|\<psi\><rsup|<around*|(|k|)>>=<wide|\<mathd\>|^>\<psi\><rsup|<around*|(|k-1|)>>>.
+    </itemize>
+  </definition>
+
+  If a form is <math|<wide|\<mathd\>|^>>-exact, then it must be
+  <math|<wide|\<mathd\>|^>>-closed, since
+  <math|<wide|\<mathd\>|^><rsup|2>=0>. The inverse, however, is not always
+  true. This can be illustrated with Stokes theorem, that is
+
+  <\equation>
+    <big|int><rsub|<with|font|cal|S>><wide|\<mathd\>|^>\<omega\>=<big|int><rsub|\<partial\><with|font|cal|S>>\<omega\>,
+  </equation>
+
+  for any form <math|\<omega\>\<in\>\<Omega\><around*|(|<with|font|cal|M>|)>>
+  and any <math|<with|font|cal|S>\<subset\><with|font|cal|M>>. If
+  <math|\<omega\>> is <math|<wide|\<mathd\>|^>>-closed, then for
+  <math|\<forall\>x\<in\><with|font|cal|M>>, let
+  <math|<with|font|cal|S>\<in\><with|font|cal|M>>, in
+  <math|<big|int><rsub|\<partial\><with|font|cal|S>>\<omega\>=<big|int><rsub|<with|font|cal|S>><wide|\<mathd\>|^>\<omega\>=0>.
+  TODO.
+
+  <subsection|Flux Operator>
 
   \;
 
+  Let
+
+  <\equation>
+    <wide|j|^>\<assign\><wide|i|^><rsub|f>-<frac|1|2>
+    \<delta\><rsup|\<alpha\>\<beta\>> <wide|i|^><rsub|g<rsub|\<alpha\>>>
+    <wide|L|^><rsub|g<rsub|\<beta\>>>.
+  </equation>
+
+  Then, <math|<wide|H|^>> can be re-written as
+
+  <\equation>
+    <wide|H|^>=<around*|[|<wide|\<mathd\>|^>,<wide|j|^>|]>.
+  </equation>
+
+  The <math|<wide|j|^>> operator is for the flux in the continuity equation.
+  Indeed, <math|\<partial\><rsub|t>\<psi\><rsup|<around*|(|D|)>>=-<wide|H|^>\<psi\><rsup|<around*|(|D|)>>=-<wide|\<mathd\>|^><around*|(|<wide|j|^>\<psi\><rsup|<around*|(|D|)>>|)>=0>,
+  indicating that <math|<wide|j|^>\<psi\><rsup|<around*|(|D|)>>> is the mass
+  flux.
+
+  <subsection|Spectrum of Lie Derivative>
+
+  <\example>
+    [Eigen-value] Let <math|<with|font|cal|M>=\<bbb-R\><rsup|2>>. Thus, let
+    <math|\<psi\><rsup|<around*|(|2|)>>\<in\>\<Omega\><rsup|2><around*|(|\<bbb-R\><rsup|2>|)>>
+    with <math|<big|int><rsub|\<bbb-R\><rsup|2>>\<psi\><rsup|<around*|(|2|)>>=1>.
+    With indices, <math|\<psi\><rsup|<around*|(|2|)>><around*|(|x|)>=\<psi\><rsub|12><around*|(|x|)>
+    \<mathd\>x<rsup|1>\<wedge\>\<mathd\>x<rsup|2>>. Here, the
+    <math|\<psi\><rsub|12><around*|(|x|)>> can be viewed as a p.d.f. If
+    <math|\<psi\><rsup|<around*|(|2|)>>> is an eigen-state of
+    <math|<wide|H|^>>, then we have <math|<wide|H|^>
+    \<psi\><rsup|<around*|(|2|)>>=\<lambda\> \<psi\><rsup|<around*|(|2|)>>>,
+    where <math|\<lambda\>\<in\>\<bbb-C\>>. We have
+
+    <\align>
+      <tformat|<table|<row|<cell|\<lambda\>=>|<cell|<big|int><rsub|\<bbb-R\><rsup|2>>\<lambda\>
+      \<psi\><rsup|<around*|(|2|)>>>>|<row|<cell|<around*|{|<wide|H|^>
+      \<psi\><rsup|<around*|(|2|)>>=\<lambda\>
+      \<psi\><rsup|<around*|(|2|)>>|}>=>|<cell|<big|int><rsub|<rsub|\<bbb-R\><rsup|2>>><wide|H|^>\<psi\><rsup|<around*|(|2|)>>>>|<row|<cell|<around*|{|<wide|H|^>=<around*|[|<wide|\<mathd\>|^>,<wide|j|^>|]>|}>=>|<cell|<big|int><rsub|<rsub|\<bbb-R\><rsup|2>>><around*|[|<wide|\<mathd\>|^>,<wide|j|^>|]>\<psi\><rsup|<around*|(|2|)>>>>|<row|<cell|<around*|{|<wide|\<mathd\>|^>\<psi\><rsup|<around*|(|2|)>>=0|}>=>|<cell|<big|int><rsub|<rsub|\<bbb-R\><rsup|2>>><wide|\<mathd\>|^><wide|j|^>\<psi\><rsup|<around*|(|2|)>>>>|<row|<cell|<around*|{|Stokes
+      theorem|}>=>|<cell|<big|int><rsub|\<partial\>\<bbb-R\><rsup|2>><wide|j|^>\<psi\><rsup|<around*|(|2|)>>.>>>>
+    </align>
+
+    Explicitly,
+
+    <\align>
+      <tformat|<table|<row|<cell|<wide|j|^>\<psi\><rsup|<around*|(|2|)>>=>|<cell|<around*|(|f<rsup|\<alpha\>>-<sqrt|T/2>
+      \<partial\><rsup|\<alpha\>>|)>i<rsub|\<alpha\>>
+      \<psi\><rsub|12><around*|(|x|)> \<mathd\>x<rsup|1>\<wedge\>\<mathd\>x<rsup|2>>>|<row|<cell|<around*|{|i<rsub|\<alpha\>>\<assign\>\<cdots\>|}>=>|<cell|<around*|(|f<rsup|1>-<sqrt|T/2>
+      \<partial\><rsup|1>|)>\<psi\><rsub|12><around*|(|x|)>
+      \<mathd\>x<rsup|2>-<around*|(|f<rsup|2>-<sqrt|T/2>
+      \<partial\><rsup|2>|)>\<psi\><rsub|12><around*|(|x|)>
+      \<mathd\>x<rsup|1>.>>|<row|<cell|<around*|{|Compact
+      format|}>=>|<cell|<around*|(|f<rsup|\<alpha\>>-<sqrt|T/2>
+      \<partial\><rsup|\<alpha\>>|)>\<psi\><rsub|\<alpha\>\<beta\>><around*|(|x|)>
+      \<mathd\>x<rsup|\<beta\>>.>>>>
+    </align>
+
+    If the <math|f> of <math|<wide|H|^>> is well-defined, and
+    <math|\<psi\><rsub|12><around*|(|x|)>> decrease to zero as
+    <math|<around*|\<\|\|\>|x|\<\|\|\>>\<rightarrow\>+\<infty\>>, then
+    <math|<big|int><rsub|\<partial\>\<bbb-R\><rsup|2>><wide|j|^>\<psi\><rsup|<around*|(|2|)>>=0>.
+    Thus <math|\<lambda\>=0>. So, we find that any \Pgood enough\Q p.d.f.
+    <math|\<psi\><rsup|<around*|(|2|)>>> as an eigen-state of
+    <math|<wide|H|^>>, then the eigen-value must be zero.
+  </example>
+
   <\bibliography|||>
-    [1] N. Dragon and F. Brandt, BRST Symmetry and Cohomology, 2012, doi:
-    <hlink|10.1142/9789814412551_0001|https://doi.org/10.1142/9789814412551_0001>.
+    [1]<label|Reference: Differential Forms and Integration> T. Tao,
+    Differential Forms and Integration.
 
-    [2] T. Tao, Differential Forms and Integration.
-
-    [3] Igor V. Ovchinnikov, Introduction to Supersymmetric Theory of
-    Stochastics, 2016, doi: <hlink|10.3390/e18040108|https://doi.org/10.3390/e18040108>.
+    [2]<label|Reference: Introduction to Supersymmetric Theory of
+    Stochastics> Igor V. Ovchinnikov, Introduction to Supersymmetric Theory
+    of Stochastics, 2016, doi: <hlink|10.3390/e18040108|https://doi.org/10.3390/e18040108>.
 
     \;
   </bibliography>
@@ -576,28 +689,41 @@
 
 <\references>
   <\collection>
+    <associate|Reference: Differential Forms and Integration|<tuple|1.9|?>>
+    <associate|Reference: Introduction to Supersymmetric Theory of
+    Stochastics|<tuple|1.9|?>>
     <associate|auto-1|<tuple|1|1>>
+    <associate|auto-10|<tuple|1.2.2|?>>
+    <associate|auto-11|<tuple|1.2.3|?>>
+    <associate|auto-12|<tuple|1.3|?>>
+    <associate|auto-13|<tuple|1.3.1|?>>
+    <associate|auto-14|<tuple|1.3.2|?>>
+    <associate|auto-15|<tuple|1.3.3|?>>
+    <associate|auto-16|<tuple|1.9|?>>
     <associate|auto-2|<tuple|1.1|1>>
     <associate|auto-3|<tuple|1.1.1|1>>
-    <associate|auto-4|<tuple|1.2|2>>
-    <associate|auto-5|<tuple|1.2.1|3>>
-    <associate|auto-6|<tuple|1.2.2|3>>
-    <associate|auto-7|<tuple|1.2.2|5>>
-    <associate|footnote-1|<tuple|1|?>>
+    <associate|auto-4|<tuple|1.1.2|3>>
+    <associate|auto-5|<tuple|1.1.3|3>>
+    <associate|auto-6|<tuple|1.1.4|4>>
+    <associate|auto-7|<tuple|1.1.5|5>>
+    <associate|auto-8|<tuple|1.2|?>>
+    <associate|auto-9|<tuple|1.2.1|?>>
     <associate|footnote-1.1|<tuple|1.1|1>>
     <associate|footnote-1.2|<tuple|1.2|1>>
     <associate|footnote-1.3|<tuple|1.3|1>>
-    <associate|footnote-1.4|<tuple|1.4|1>>
-    <associate|footnote-1.5|<tuple|1.5|1>>
-    <associate|footnote-1.6|<tuple|1.6|1>>
-    <associate|footnote-1.7|<tuple|1.7|3>>
+    <associate|footnote-1.4|<tuple|1.4|2>>
+    <associate|footnote-1.5|<tuple|1.5|2>>
+    <associate|footnote-1.6|<tuple|1.6|2>>
+    <associate|footnote-1.7|<tuple|1.7|4>>
+    <associate|footnote-1.8|<tuple|1.8|?>>
     <associate|footnr-1.1|<tuple|1.1|1>>
     <associate|footnr-1.2|<tuple|1.2|1>>
     <associate|footnr-1.3|<tuple|1.3|1>>
-    <associate|footnr-1.4|<tuple|1.4|1>>
-    <associate|footnr-1.5|<tuple|1.6|1>>
-    <associate|footnr-1.6|<tuple|1.6|1>>
-    <associate|footnr-1.7|<tuple|1.7|3>>
+    <associate|footnr-1.4|<tuple|1.4|2>>
+    <associate|footnr-1.5|<tuple|1.5|2>>
+    <associate|footnr-1.6|<tuple|1.6|2>>
+    <associate|footnr-1.7|<tuple|1.7|4>>
+    <associate|footnr-1.8|<tuple|1.8|?>>
   </collection>
 </references>
 
